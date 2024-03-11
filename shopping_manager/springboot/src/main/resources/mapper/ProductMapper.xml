@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mapper.ProductMapper">
+
+    <sql id="Base_Column_List">
+        id,name,description,img,price,count,category_id,seller_id
+    </sql>
+
+    <select id="selectAll" resultType="com.example.entity.Product">
+        select product.*, category.name as categoryName, seller.name as sellerName
+        from product
+        left join category on product.category_id = category.id
+        left join seller on product.seller_id = seller.id
+        <where>
+            <if test="id != null"> and id= #{id}</if>
+            <if test="name != null"> and product.name like concat('%', #{name}, '%')</if>
+            <if test="description != null"> and description= #{description}</if>
+            <if test="img != null"> and img= #{img}</if>
+            <if test="price != null"> and price= #{price}</if>
+            <if test="count != null"> and count= #{count}</if>
+            <if test="categoryId != null"> and category_id= #{categoryId}</if>
+            <if test="sellerId != null"> and seller_id= #{sellerId}</if>
+        </where>
+        order by id desc
+    </select>
+
+    <select id="selectById" resultType="com.example.entity.Product">
+        select
+        <include refid="Base_Column_List" />
+        from product
+        where id = #{id}
+    </select>
+
+    <delete id="deleteById">
+        delete from product
+        where  id = #{id}
+    </delete>
+
+    <insert id="insert" parameterType="com.example.entity.Product" useGeneratedKeys="true">
+        insert into product
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">id,</if>
+            <if test="name != null">name,</if>
+            <if test="description != null">description,</if>
+            <if test="img != null">img,</if>
+            <if test="price != null">price,</if>
+            <if test="count != null">count,</if>
+            <if test="categoryId != null">category_id,</if>
+            <if test="sellerId != null">seller_id,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">#{id},</if>
+            <if test="name != null">#{name},</if>
+            <if test="description != null">#{description},</if>
+            <if test="img != null">#{img},</if>
+            <if test="price != null">#{price},</if>
+            <if test="count != null">#{count},</if>
+            <if test="categoryId != null">#{categoryId},</if>
+            <if test="sellerId != null">#{sellerId},</if>
+        </trim>
+    </insert>
+
+    <update id="updateById" parameterType="com.example.entity.Product">
+        update product
+        <set>
+            <if test="name != null">
+                name = #{name},
+            </if>
+            <if test="description != null">
+                description = #{description},
+            </if>
+            <if test="img != null">
+                img = #{img},
+            </if>
+            <if test="price != null">
+                price = #{price},
+            </if>
+            <if test="count != null">
+                count = #{count},
+            </if>
+            <if test="categoryId != null">
+                category_id = #{categoryId},
+            </if>
+            <if test="sellerId != null">
+                seller_id = #{sellerId},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+
+</mapper>
