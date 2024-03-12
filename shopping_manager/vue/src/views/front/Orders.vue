@@ -1,9 +1,9 @@
 <template>
   <div class="main-content">
-    <div style="width: 80%; background-color: white; margin: 30px auto; border-radius: 20px">
+    <div style="width: 80%; background-color: #FDF5E6; margin: 30px auto; border-radius: 20px">
       <div style="padding-bottom: 10px">
         <div style="font-size: 18px; color: #000000FF; line-height: 80px; border-bottom: #cccccc 1px solid;">
-          <div style="margin-left: 20px">My Order（{{ ordersData.length }} 个）</div>
+          <div style="margin-left: 20px; font-size: 24px;">My Orders</div>
         </div>
         <div style="margin: 20px 0; padding: 0 50px">
           <div class="table">

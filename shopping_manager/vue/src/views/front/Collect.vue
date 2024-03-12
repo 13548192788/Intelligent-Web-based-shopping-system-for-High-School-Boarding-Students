@@ -1,9 +1,10 @@
 <template>
   <div class="main-content">
-    <div style="width: 70%; background-color: white; margin: 30px auto; border-radius: 20px">
+    <div style="width: 70%; background-color: #FDF5E6; margin: 30px auto; border-radius: 20px">
       <div style="padding-bottom: 10px">
         <div style="font-size: 18px; color: #000000FF; line-height: 80px; border-bottom: #cccccc 1px solid;">
-          <div style="margin-left: 20px">Total（{{ collectData.length }} product）</div>
+          <div style="margin-left: 20px; font-size: 24px; line-height: 50px"> My Collection</div>
+          <div style="margin-left: 20px"> Total {{ collectData.length }} products </div>
         </div>
         <div style="margin: 20px 0; padding: 0 50px">
           <div class="table">

@@ -1,9 +1,9 @@
 <template>
   <div class="main-content">
-    <div style="width: 70%; background-color: white; margin: 30px auto; border-radius: 20px">
+    <div style="width: 70%; background-color: #FDF5E6; margin: 30px auto; border-radius: 20px">
       <div style="padding-bottom: 10px">
         <div style="display: flex; font-size: 18px; color: #000000FF; line-height: 80px; border-bottom: #cccccc 1px solid;">
-          <div style="flex: 3; margin-left: 20px">My Address</div>
+          <div style="flex: 3; font-size: 24px; margin-left: 20px">My Address</div>
           <div style="flex: 1; text-align: right; padding-right: 20px">
             <el-button type="warning" round @click="addAddress">Add</el-button>
           </div>

@@ -1,11 +1,11 @@
 <template>
   <div class="main-content">
-    <div style="height: 40px; background-color: #C566F6FF"></div>
+    <div style="height: 10px; background-color: #C566F6FF"></div>
     <div style="display: flex">
       <div class="left"></div>
-      <div style="width: 80%; background-color: white; margin-bottom: 50px">
+      <div style="width: 80%; background-color: #fffafa; margin-bottom: 50px">
         <div style="color: #355476; margin: 15px 0 15px 18px; font-weight: bold; font-size: 30px">Shopping Home</div>
-        <div style="display: flex; margin: 0 25px; height: 550px">
+        <div style="display: flex; margin: 0 25px; height: 350px">
           <div style="flex: 2">
             <div style="display: flex; color: #666666FF; margin: 14px 0" v-for="item in typeData">
               <img :src="item.img" alt="" style="height: 30px; width: 20px">
@@ -14,37 +14,37 @@
           </div>
           <div style="flex: 5; margin-top: 15px">
             <div>
-              <el-carousel height="300px" style="border-radius: 10px">
+              <el-carousel height="350px" style="border-radius: 10px">
                 <el-carousel-item v-for="item in carousel_top">
-                  <img :src="item" alt="" style="width: 100%; height: 300px; border-radius: 10px">
+                  <img :src="item" alt="" style="width: 100%; height: 350px; border-radius: 10px">
                 </el-carousel-item>
               </el-carousel>
             </div>
-            <div style="margin-top: 30px; display: flex">
-              <div style="flex: 1">
-                <el-carousel height="300px" style="border-radius: 10px">
-                  <el-carousel-item v-for="item in carousel_left">
-                    <img :src="item" alt="" style="width: 100%; height: 200px; border-radius: 10px">
-                  </el-carousel-item>
-                </el-carousel>
-              </div>
-              <div style="flex: 1; margin-left: 5px">
-                <el-carousel height="300px" style="border-radius: 10px">
-                  <el-carousel-item v-for="item in carousel_right">
-                    <img :src="item" alt="" style="width: 100%; height: 200px; border-radius: 10px">
-                  </el-carousel-item>
-                </el-carousel>
-              </div>
-            </div>
+<!--            <div style="margin-top: 30px; display: flex">-->
+<!--              <div style="flex: 1">-->
+<!--                <el-carousel height="300px" style="border-radius: 10px">-->
+<!--                  <el-carousel-item v-for="item in carousel_left">-->
+<!--                    <img :src="item" alt="" style="width: 100%; height: 200px; border-radius: 10px">-->
+<!--                  </el-carousel-item>-->
+<!--                </el-carousel>-->
+<!--              </div>-->
+<!--              <div style="flex: 1; margin-left: 5px">-->
+<!--                <el-carousel height="300px" style="border-radius: 10px">-->
+<!--                  <el-carousel-item v-for="item in carousel_right">-->
+<!--                    <img :src="item" alt="" style="width: 100%; height: 200px; border-radius: 10px">-->
+<!--                  </el-carousel-item>-->
+<!--                </el-carousel>-->
+<!--              </div>-->
+<!--            </div>-->
           </div>
           <div style="flex: 3; background-color: #F3F3F3FF; margin-top: 15px; margin-left: 15px; border-radius: 10px">
-            <div style="text-align: center; margin-top: 30px">
+            <div style="text-align: center; margin-top: 10px">
               <img @click="navTo('/front/person')" :src="user.avatar" alt="" style="width: 80px; height: 80px; border-radius: 50%">
               <div style="margin-top: 10px">Hi，{{user.name}}</div>
             </div>
-            <div style="margin-top: 20px; padding: 0 15px">
-              <img src="@/assets/imgs/right.png" alt="" style="height: 150px; width: 100%; border-radius: 20px">
-            </div>
+<!--            <div style="margin-top: 20px; padding: 0 15px">-->
+<!--              <img src="@/assets/imgs/right.png" alt="" style="height: 150px; width: 100%; border-radius: 20px">-->
+<!--            </div>-->
 <!--            <div style="margin: 20px 10px 10px 10px; width: 250px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">-->
 <!--              <i class="el-icon-bell"></i>-->
 <!--              <span style="font-weight: bold">Notice</span>-->

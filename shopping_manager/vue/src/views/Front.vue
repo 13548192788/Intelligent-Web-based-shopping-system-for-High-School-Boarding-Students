@@ -64,6 +64,7 @@ export default {
     return {
       top: '',
       notice: [],
+      name: '',//使得搜索栏可输入
       user: JSON.parse(localStorage.getItem("xm-user") || '{}'),
     }
   },

@@ -22,7 +22,7 @@
             </div>
           </template>
         </el-table-column>
-        <el-table-column prop="orderId" label="ID"></el-table-column>
+        <el-table-column prop="orderId" label="Order ID"></el-table-column>
         <el-table-column prop="productName" label="Product Name" show-overflow-tooltip></el-table-column>
         <el-table-column prop="productPrice" label="Price" show-overflow-tooltip>
           <template v-slot="scope">

@@ -1,9 +1,10 @@
 <template>
   <div class="main-content">
-    <div style="width: 70%; background-color: white; margin: 30px auto; border-radius: 20px">
+    <div style="width: 70%; background-color: #FDF5E6; margin: 30px auto; border-radius: 20px">
       <div style="padding-bottom: 10px">
+        <div style="margin-left: 20px; font-size: 24px; line-height: 50px"> My Cart</div>
         <div style="display: flex; font-size: 18px; color: #000000FF; line-height: 80px; border-bottom: #cccccc 1px solid;">
-          <div style="margin-left: 20px; flex: 1">Total （{{ productData.length }} products）</div>
+          <div style="margin-left: 20px; flex: 1">Total {{ productData.length }} products</div>
           <div style="flex: 2; text-align: right">
             <el-select v-model="addressId" placeholder="Please choose address" style="width: 70%">
               <el-option v-for="item in addressData" :label="item.username + ' - ' + item.useraddress + ' - ' + item.phone" :value="item.id"></el-option>
