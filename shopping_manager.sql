@@ -43,6 +43,98 @@ INSERT INTO `admin` VALUES (5, 'v', '123', 'v', NULL, 'ADMIN', NULL, NULL);
 INSERT INTO `admin` VALUES (6, 's', '123', 's', NULL, 'ADMIN', NULL, NULL);
 
 -- ----------------------------
+-- Table structure for cart
+-- ----------------------------
+DROP TABLE IF EXISTS `cart`;
+CREATE TABLE `cart`  (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `user_id` int(10) NULL DEFAULT NULL,
+  `product_id` int(10) NULL DEFAULT NULL,
+  `seller_id` int(10) NULL DEFAULT NULL,
+  `num` int(10) NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 8 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of cart
+-- ----------------------------
+
+
+-- ----------------------------
+-- Table structure for address
+-- ----------------------------
+DROP TABLE IF EXISTS `address`;
+CREATE TABLE `address`  (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `user_id` int(10) NULL DEFAULT NULL,
+  `username` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
+  `useraddress` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
+  `phone` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 7 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of address
+-- ----------------------------
+
+
+-- ----------------------------
+-- Table structure for collect
+-- ----------------------------
+DROP TABLE IF EXISTS `collect`;
+CREATE TABLE `collect`  (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `user_id` int(10) NULL DEFAULT NULL,
+  `product_id` int(10) NULL DEFAULT NULL,
+  `seller_id` int(10) NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 8 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of collect
+-- ----------------------------
+
+
+-- ----------------------------
+-- Table structure for comment
+-- ----------------------------
+DROP TABLE IF EXISTS `comment`;
+CREATE TABLE `comment`  (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `user_id` int(10) NULL DEFAULT NULL,
+  `product_id` int(10) NULL DEFAULT NULL,
+  `seller_id` int(10) NULL DEFAULT NULL,
+  `content` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
+  `time` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of comment
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for orders
+-- ----------------------------
+DROP TABLE IF EXISTS `orders`;
+CREATE TABLE `orders`  (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `order_id` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
+  `product_id` int(10) NULL DEFAULT NULL,
+  `seller_id` int(10) NULL DEFAULT NULL,
+  `num` int(10) NULL DEFAULT NULL,
+  `user_id` int(10) NULL DEFAULT NULL,
+  `price` double(10, 2) NULL DEFAULT NULL,
+  `address_id` int(10) NULL DEFAULT NULL,
+  `status` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 11 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of orders
+-- ----------------------------
+
+-- ----------------------------
 -- Table structure for category
 -- ----------------------------
 DROP TABLE IF EXISTS `category`;
@@ -81,23 +173,23 @@ CREATE TABLE `notice`  (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for products
+-- Table structure for product
 -- ----------------------------
-DROP TABLE IF EXISTS `products`;
-CREATE TABLE `products`  (
+DROP TABLE IF EXISTS `product`;
+CREATE TABLE `product`  (
   `id` int(10) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
   `img` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
   `description` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL,
   `price` double(10, 2) NULL DEFAULT NULL,
   `count` int(10) NULL DEFAULT 0,
-  `type_id` int(10) NULL DEFAULT NULL,
-  `business_id` int(10) NULL DEFAULT NULL,
+  `category_id` int(10) NULL DEFAULT NULL,
+  `seller_id` int(10) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 8 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
--- Records of products
+-- Records of product
 -- ----------------------------
 
 -- ----------------------------

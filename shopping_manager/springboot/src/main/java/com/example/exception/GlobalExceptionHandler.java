@@ -19,7 +19,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(Exception.class)
     @ResponseBody//返回json串
     public Result error(HttpServletRequest request, Exception e){
-        log.error("异常信息：",e);
+        log.error("Exception information：",e);//异常信息
         return Result.error();
     }
 

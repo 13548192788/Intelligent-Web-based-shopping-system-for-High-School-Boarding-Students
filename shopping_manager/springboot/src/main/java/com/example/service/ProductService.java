@@ -69,6 +69,22 @@ public class ProductService {
         return productMapper.selectAll(product);
     }
 
+    public List<Product> selectTop15() {
+        return productMapper.selectTop15();
+    }
+
+    public List<Product> selectByCategoryId(Integer id) {
+        return productMapper.selectByCategoryId(id);
+    }
+
+    public List<Product> selectBySellerId(Integer id) {
+        return productMapper.selectBySellerId(id);
+    }
+
+    public List<Product> selectByName(String name) {
+        return productMapper.selectByName(name);
+    }
+
     /**
      * 分页查询
      */

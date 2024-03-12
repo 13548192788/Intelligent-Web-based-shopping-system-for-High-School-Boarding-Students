@@ -62,7 +62,7 @@ public class TokenUtils {
                 }
             }
         } catch (Exception e) {
-            log.error("获取当前用户信息出错", e);
+            log.error("Error getting current user information", e);//获取当前用户信息出错
         }
         return new Account();  // 返回空的账号对象
     }

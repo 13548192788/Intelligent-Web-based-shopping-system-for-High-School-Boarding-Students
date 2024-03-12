@@ -13,6 +13,24 @@ public class Product implements Serializable {
     private Integer count;
     private Integer categoryId;
     private Integer sellerId;
+    private String categoryName;
+    private String sellerName;
+
+    public String getCategoryName() {
+        return categoryName;
+    }
+
+    public void setCategoryName(String categoryName) {
+        this.categoryName = categoryName;
+    }
+
+    public String getSellerName() {
+        return sellerName;
+    }
+
+    public void setSellerName(String sellerName) {
+        this.sellerName = sellerName;
+    }
 
 
     public Integer getId() {

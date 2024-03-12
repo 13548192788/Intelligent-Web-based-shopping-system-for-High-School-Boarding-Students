@@ -27,10 +27,11 @@
     </select>
 
     <select id="selectById" resultType="com.example.entity.Product">
-        select
-        <include refid="Base_Column_List" />
+        select product.*, seller.name as sellerName, category.name as categoryName
         from product
-        where id = #{id}
+                 left join seller on product.seller_id = seller.id
+                 left join category on product.category_id = category.id
+        where product.id = #{id}
     </select>
 
     <delete id="deleteById">

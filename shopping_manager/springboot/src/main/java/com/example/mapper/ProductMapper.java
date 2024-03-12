@@ -1,6 +1,7 @@
 package com.example.mapper;
 
 import com.example.entity.Product;
+import org.apache.ibatis.annotations.Select;
 
 import java.util.List;
 
@@ -9,7 +10,7 @@ import java.util.List;
 */
 public interface ProductMapper {
 
-    int insert(Product goods);
+    int insert(Product product);
 
     /**
      * 删除
@@ -19,7 +20,7 @@ public interface ProductMapper {
     /**
      * 修改
      */
-    int updateById(Product goods);
+    int updateById(Product product);
 
     /**
      * 根据ID查询
@@ -29,6 +30,19 @@ public interface ProductMapper {
     /**
      * 查询所有
      */
-    List<Product> selectAll(Product goods);
+    List<Product> selectAll(Product product);
+
+    @Select("select * from product where category_id = #{id}")
+    List<Product> selectByCategoryId(Integer id);
+
+    @Select("select * from product where seller_id = #{id}")
+    List<Product> selectBySellerId(Integer id);
+
+    @Select("select * from product where name like concat('%', #{name}, '%')")
+    List<Product> selectByName(String name);
+
+    @Select("select * from product order by count desc limit 15")
+    List<Product> selectTop15();
+
 
 }

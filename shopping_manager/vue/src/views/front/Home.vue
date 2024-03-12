@@ -70,7 +70,7 @@
                 </a>
               </div>
               <div style="flex: 1; text-align: center">
-                <a href="#" @click="navTo('/front/ orders')">
+                <a href="#" @click="navTo('/front/orders')">
                   <img src="@/assets/imgs/order.png" alt="" style="height: 25px; width: 25px">
                   <div>My order</div>
                 </a>
@@ -81,10 +81,10 @@
         <div style="margin: 40px 0 0 15px; height: 40px; background-color: #04BF04FF; font-size: 20px; color: white; width: 130px; font-weight: bold; line-height: 40px; text-align: center; border-radius: 20px">Hot</div>
         <div style="margin: 10px 5px 0 5px">
           <el-row>
-            <el-col :span="5" v-for="item in goodsData">
+            <el-col :span="5" v-for="item in productData">
               <img @click="navTo('/front/detail?id=' + item.id)" :src="item.img" alt="" style="Fwidth: 100%; height: 175px; border-radius: 10px; border: #cccccc 1px solid">
-              <div style="margin-top: 10px; font-weight: 500; font-size: 16px; width: 180px; color: #000000FF; text-overflow: ellipsis; overflow: hidden; white-space: nowrap;">{{item.name}}</div>
-              <div style="margin-top: 5px; font-size: 20px; color: #FF5000FF">￥ {{item.price}} / {{item.unit}}</div>
+              <div @click="navTo('/front/detail?id=' + item.id)" style="margin-top: 10px; font-weight: 500; font-size: 16px; width: 180px; color: #000000FF; text-overflow: ellipsis; overflow: hidden; white-space: nowrap;">{{item.name}}</div>
+              <div style="margin-top: 5px; font-size: 20px; color: #FF5000FF">￥ {{item.price}}</div>
             </el-col>
           </el-row>
         </div>
@@ -94,7 +94,7 @@
             <el-col :span="5" v-for="item in recommendData">
               <img @click="navTo('/front/detail?id=' + item.id)" :src="item.img" alt="" style="width: 100%; height: 175px; border-radius: 10px; border: #cccccc 1px solid">
               <div style="margin-top: 10px; font-weight: 500; font-size: 16px; width: 180px; color: #000000FF; text-overflow: ellipsis; overflow: hidden; white-space: nowrap;">{{item.name}}</div>
-              <div style="margin-top: 5px; font-size: 20px; color: #FF5000FF">￥ {{item.price}} / {{item.unit}}</div>
+              <div style="margin-top: 5px; font-size: 20px; color: #FF5000FF">￥ {{item.price}}}</div>
             </el-col>
           </el-row>
         </div>
@@ -111,10 +111,10 @@ export default {
   data() {
     return {
       user: JSON.parse(localStorage.getItem('xm-user') || '{}'),
-      typeData: [],
+      categoryData: [],
       top: null,
       notice: [],
-      goodsData: [],
+      productData: [],
       recommendData: [],
       carousel_top: [
         require('@/assets/imgs/carousel-1.png'),
@@ -131,15 +131,15 @@ export default {
     }
   },
   mounted() {
-    this.loadType()
+    this.loadCategory()
     this.loadNotice()
-    this.loadGoods()
+    this.loadProduct()
     this.loadRecommend()
   },
   // methods：本页面所有的点击事件或者其他函数定义区
   methods: {
     loadRecommend() {
-      this.$request.get('/goods/recommend').then(res => {
+      this.$request.get('/product/recommend').then(res => {
         if (res.code === '200') {
           this.recommendData = res.data
         } else {
@@ -147,7 +147,7 @@ export default {
         }
       })
     },
-    loadType() {
+    loadCategory() {
       this.$request.get('/category/selectAll').then(res => {
         if (res.code === '200') {
           this.typeData = res.data
@@ -172,10 +172,10 @@ export default {
         }
       })
     },
-    loadGoods() {
-      this.$request.get('/goods/selectTop15').then(res => {
+    loadProduct() {
+      this.$request.get('/product/selectAll').then(res => {
         if (res.code === '200') {
-          this.goodsData = res.data
+          this.productData = res.data
         } else {
           this.$message.error(res.msg)
         }

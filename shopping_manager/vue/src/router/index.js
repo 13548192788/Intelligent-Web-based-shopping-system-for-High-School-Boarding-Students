@@ -27,6 +27,8 @@ const routes = [
       { path: 'sellerPerson', name: 'SellerPerson', meta: { name: 'Seller Personal Information' }, component: () => import('../views/manager/SellerPerson') },
       { path: 'user', name: 'User', meta: { name: 'User Information' }, component: () => import('../views/manager/User') },
       { path: 'product', name: 'Product', meta: { name: 'Product Manage' }, component: () => import('../views/manager/Product') },
+      { path: 'orders', name: 'Orders', meta: { name: '订单管理' }, component: () => import('../views/manager/Orders') },
+      { path: 'comment', name: 'Comment', meta: { name: '评论管理' }, component: () => import('../views/manager/Comment') },
     ]
   },
   {
@@ -40,6 +42,9 @@ const routes = [
       { path: 'address', name: 'Address', meta: { name: 'My Address' }, component: () => import('../views/front/Address') },
       { path: 'cart', name: 'Cart', meta: { name: 'My Cart' }, component: () => import('../views/front/Cart') },
       { path: 'orders', name: 'Orders', meta: { name: 'My Orders' }, component: () => import('../views/front/Orders') },
+      { path: 'detail', name: 'Detail', meta: { name: 'Product Information' }, component: () => import('../views/front/Detail') },
+      { path: 'search', name: 'Search', meta: { name: 'Search' }, component: () => import('../views/front/Search') },
+      { path: 'category', name: 'Category', meta: { name: 'Category' }, component: () => import('../views/front/Category') },
     ]
   },
   { path: '/login', name: 'Login', meta: { name: 'Login' }, component: () => import('../views/Login.vue') },

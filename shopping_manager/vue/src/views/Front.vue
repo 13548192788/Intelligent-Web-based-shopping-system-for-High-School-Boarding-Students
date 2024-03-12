@@ -2,7 +2,7 @@
   <div>
     <!--Head-->
     <div class="front-header">
-      <div class="front-header-left">
+      <div class="front-header-left" @click="navTo('/front/home')">
         <img src="@/assets/imgs/logo.png" alt="">
         <div class="title">GoShopping</div>
       </div>
@@ -24,6 +24,9 @@
               </div>
             </div>
             <el-dropdown-menu slot="dropdown">
+              <el-dropdown-item>
+                <div style="text-decoration: none" v-if="user.role !== 'USER'" @click="navTo('/Home')">Management</div>
+              </el-dropdown-item>
               <el-dropdown-item>
                 <div style="text-decoration: none" @click="navTo('/front/cart')">My Cart</div>
               </el-dropdown-item>
@@ -96,7 +99,10 @@ export default {
     search() {
       let name = this.name ? this.name : ''
       location.href = '/front/search?name=' + name
-    }
+    },
+    navTo(url) {
+      location.href = url
+    },
   }
 
 }

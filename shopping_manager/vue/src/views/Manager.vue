@@ -26,8 +26,9 @@
             <div>{{ user.name ||  'Administrator' }}</div>
           </div>
           <el-dropdown-menu slot="dropdown">
-                        <el-dropdown-item @click.native="goToPerson">Personal Information</el-dropdown-item>
-                        <el-dropdown-item @click.native="$router.push('/password')">Modify Password</el-dropdown-item>
+            <el-dropdown-item @click.native="$router.push('/front/Home')">Shopping Home</el-dropdown-item>
+            <el-dropdown-item @click.native="goToPerson">Personal Information</el-dropdown-item>
+            <el-dropdown-item @click.native="$router.push('/password')">Modify Password</el-dropdown-item>
             <el-dropdown-item @click.native="logout">Exit</el-dropdown-item>
           </el-dropdown-menu>
         </el-dropdown>
@@ -48,7 +49,9 @@
               <i class="el-icon-menu"></i><span>Information Manage</span>
             </template>
             <el-menu-item v-if="user.role === 'ADMIN'" index="/category">Category information</el-menu-item>
-            <el-menu-item v-if="user.role !== 'USER'" S index="/product">Product Manage</el-menu-item>
+            <el-menu-item v-if="user.role !== 'USER'"  index="/product">Product Manage</el-menu-item>
+            <el-menu-item index="/orders">Orders Manage</el-menu-item>
+            <el-menu-item index="/comment">Comment Manage</el-menu-item>
           </el-submenu>
 
           <el-submenu index="user" v-if="user.role === 'ADMIN'">

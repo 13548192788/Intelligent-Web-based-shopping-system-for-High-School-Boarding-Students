@@ -74,6 +74,30 @@ public class ProductController {
         return Result.success(list);
     }
 
+    @GetMapping("/selectByCategoryId")
+    public Result selectByTypeId(@RequestParam Integer id) {
+        List<Product> list = productService.selectByCategoryId(id);
+        return Result.success(list);
+    }
+
+    @GetMapping("/selectByName")
+    public Result selectByName(@RequestParam String name) {
+        List<Product> list = productService.selectByName(name);
+        return Result.success(list);
+    }
+
+    @GetMapping("/selectTop15")
+    public Result selectTop15() {
+        List<Product> list = productService.selectTop15();
+        return Result.success(list);
+    }
+
+    @GetMapping("/selectBySellerId")
+    public Result selectBySellerId(@RequestParam Integer id) {
+        List<Product> list = productService.selectBySellerId(id);
+        return Result.success(list);
+    }
+
     /**
      * 分页查询
      */

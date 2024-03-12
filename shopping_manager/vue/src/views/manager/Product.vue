@@ -7,7 +7,7 @@
     </div>
 
     <div class="operation">
-      <el-button type="primary" plain @click="handleAdd">Add</el-button>
+      <el-button v-if="user.role === 'SELLER'" type="primary" plain @click="handleAdd">Add</el-button>
       <el-button type="danger" plain @click="delBatch">Delete</el-button>
     </div>
 
@@ -26,8 +26,8 @@
         <el-table-column prop="name" label="Name" show-overflow-tooltip></el-table-column>
         <el-table-column prop="description" label="Description" show-overflow-tooltip></el-table-column>
         <el-table-column prop="price" label="Price" show-overflow-tooltip></el-table-column>
-        <el-table-column prop="CategoryName" label="Category Name" show-overflow-tooltip></el-table-column>
-        <el-table-column prop="SellerName" label="Seller Name" show-overflow-tooltip></el-table-column>
+        <el-table-column prop="categoryName" label="Category" show-overflow-tooltip></el-table-column>
+        <el-table-column prop="sellerName" label="Seller Name" show-overflow-tooltip></el-table-column>
         <el-table-column prop="count" label="Count" show-overflow-tooltip></el-table-column>
         <el-table-column label="Operation" width="180" align="center">
           <template v-slot="scope">
@@ -130,7 +130,10 @@ export default {
       })
     },
     handleAdd() {   // 新增数据
-
+      if ('Pass' !== this.user.status) {
+        this.$message.warning('您的店铺信息还未审核通过，暂时不允许发布商品')
+        return
+      }
         this.form = {}  // 新增数据的时候清空数据
         this.fromVisible = true   // 打开弹窗
 
