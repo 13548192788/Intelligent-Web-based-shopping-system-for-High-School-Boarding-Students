@@ -26,7 +26,7 @@
         <el-table-column prop="productName" label="Product Name" show-overflow-tooltip></el-table-column>
         <el-table-column prop="productPrice" label="Price" show-overflow-tooltip>
           <template v-slot="scope">
-            {{scope.row.productPrice}}}
+            {{scope.row.productPrice}}
           </template>
         </el-table-column>
         <el-table-column prop="num" label="Count" show-overflow-tooltip></el-table-column>

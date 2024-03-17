@@ -1,13 +1,20 @@
 package com.example.controller;
 
+import cn.hutool.core.collection.CollUtil;
+import cn.hutool.core.io.FileUtil;
+import cn.hutool.core.lang.Dict;
 import com.example.common.Result;
 import com.example.entity.Product;
 import com.example.service.ProductService;
 import com.github.pagehelper.PageInfo;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
 
 /**
  * 分类信息表前端操作接口
@@ -25,6 +32,7 @@ public class ProductController {
      */
     @PostMapping("/add")
     public Result add(@RequestBody Product product) {
+
         productService.add(product);
         return Result.success();
     }
@@ -65,6 +73,12 @@ public class ProductController {
         return Result.success(product);
     }
 
+    @GetMapping("/selectById")
+    public Result selectByIdNew(Integer id) {
+        Product product = productService.selectById(id);
+        return Result.success(product);
+    }
+
     /**
      * 查询所有
      */
@@ -98,6 +112,13 @@ public class ProductController {
         return Result.success(list);
     }
 
+
+    @GetMapping("/recommend")
+    public Result recommend() {
+        List<Product> list = productService.recommend();
+        return Result.success(list);
+    }
+
     /**
      * 分页查询
      */
@@ -108,5 +129,6 @@ public class ProductController {
         PageInfo<Product> page = productService.selectPage(product, pageNum, pageSize);
         return Result.success(page);
     }
+
 
 }

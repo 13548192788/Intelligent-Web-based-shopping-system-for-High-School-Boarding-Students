@@ -25,7 +25,7 @@
             </div>
             <el-dropdown-menu slot="dropdown">
               <el-dropdown-item>
-                <div style="text-decoration: none" v-if="user.role !== 'USER'" @click="navTo('/Home')">Management</div>
+                <div style="text-decoration: none" v-if="user.role !== 'USER'" @click="navTo('/home')">Management</div>
               </el-dropdown-item>
               <el-dropdown-item>
                 <div style="text-decoration: none" @click="navTo('/front/cart')">My Cart</div>
@@ -47,7 +47,19 @@
         </div>
       </div>
     </div>
-    <!--主体-->
+<!--    <div class="navbar">-->
+<!--      <button class="nav-item" @click="navTo('/front/home')">首页</button>-->
+<!--      <div class="nav-item with-dropdown">-->
+<!--        <button class="dropdown-toggle" @click="toggleDropdown" v-for="item in categoryData">商品分类</button>-->
+<!--        <ul class="dropdown-menu" v-show="showDropdown">-->
+<!--          <div style="margin-left: 10px; font-size: 17px"><a href="#" @click="navTo('/front/category?id=' + item.id)">{{item.name}}</a></div>-->
+<!--        </ul>-->
+<!--      </div>-->
+<!--      <button class="nav-item" @click="navTo('/products')">产品</button>-->
+<!--      <button class="nav-item" @click="navTo('/news')">新闻</button>-->
+<!--      <button class="nav-item" @click="navTo('/brands')">品牌</button>-->
+<!--    </div>-->
+<!--    主体-->
     <div class="main-body">
       <router-view ref="child" @update:user="updateUser" />
     </div>
@@ -62,8 +74,10 @@ export default {
 
   data () {
     return {
+      showDropdown: false,
       top: '',
       notice: [],
+      categoryData: [],
       name: '',//使得搜索栏可输入
       user: JSON.parse(localStorage.getItem("xm-user") || '{}'),
     }
@@ -71,8 +85,18 @@ export default {
 
   mounted() {
     this.loadNotice()
+    this.loadCategory()
   },
   methods: {
+    loadCategory() {
+      this.$request.get('/category/selectAll').then(res => {
+        if (res.code === '200') {
+          this.categoryData = res.data
+        } else {
+          this.$message.error(res.msg)
+        }
+      })
+    },
     loadNotice() {
       this.$request.get('/notice/selectAll').then(res => {
         this.notice = res.data
@@ -91,6 +115,9 @@ export default {
     },
     updateUser() {
       this.user = JSON.parse(localStorage.getItem('xm-user') || '{}')   // 重新获取下用户的最新信息
+    },
+    toggleDropdown() {
+      this.showDropdown = !this.showDropdown;
     },
     // 退出登录
     logout() {

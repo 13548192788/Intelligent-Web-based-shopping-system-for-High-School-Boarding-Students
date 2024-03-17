@@ -7,6 +7,7 @@
     </div>
 
     <div class="operation">
+<!--      <el-button v-if="user.role === 'SELLER'" type="primary" plain @click="handleAdd">Add</el-button>-->
       <el-button v-if="user.role === 'SELLER'" type="primary" plain @click="handleAdd">Add</el-button>
       <el-button type="danger" plain @click="delBatch">Delete</el-button>
     </div>
@@ -24,11 +25,15 @@
           </template>
         </el-table-column>
         <el-table-column prop="name" label="Name" show-overflow-tooltip></el-table-column>
-        <el-table-column prop="description" label="Description" show-overflow-tooltip></el-table-column>
+        <el-table-column prop="description" label="Description">
+          <template slot-scope="scope">
+            <el-button type="success" @click="viewEditor(scope.row.description)">View</el-button>
+          </template>
+        </el-table-column>
         <el-table-column prop="price" label="Price" show-overflow-tooltip></el-table-column>
         <el-table-column prop="categoryName" label="Category" show-overflow-tooltip></el-table-column>
         <el-table-column prop="sellerName" label="Seller Name" show-overflow-tooltip></el-table-column>
-        <el-table-column prop="count" label="Count" show-overflow-tooltip></el-table-column>
+        <el-table-column prop="count" label="Sale" show-overflow-tooltip></el-table-column>
         <el-table-column label="Operation" width="180" align="center">
           <template v-slot="scope">
             <el-button plain type="primary" @click="handleEdit(scope.row)" size="mini">Edit</el-button>
@@ -76,7 +81,7 @@
           </el-select>
         </el-form-item>
         <el-form-item prop="description" label="Description">
-
+          <div id="editor" style="width: 100%"></div>
         </el-form-item>
       </el-form>
       <div slot="footer" class="dialog-footer">
@@ -85,11 +90,28 @@
       </div>
     </el-dialog>
 
-
+  <el-dialog title="Description" :visible.sync="editorVisible" width="50%">
+    <div v-html="this.viewData" class="w-e-text"></div>
+  </el-dialog>
   </div>
 </template>
 
 <script>
+
+import E from 'wangeditor'
+
+let editor
+function initWangEditor(content) {	setTimeout(() => {
+  if (!editor) {
+    editor = new E('#editor')
+    editor.config.placeholder = 'Please enter'
+    editor.config.uploadFileName = 'file'
+    editor.config.uploadImgServer = 'http://localhost:9090/files/wang/upload'
+    editor.create()
+  }
+  editor.txt.html(content)
+}, 0)
+}
 
 export default {
   name: "Notice",
@@ -101,6 +123,7 @@ export default {
       total: 0,
       name: null,
       fromVisible: false,
+      editorVisible: false,
       form: {},
       user: JSON.parse(localStorage.getItem('xm-user') || '{}'),
       rules: {
@@ -113,6 +136,7 @@ export default {
       },
       ids: [],
       categoryData: [],
+      viewData: null
     }
   },
   created() {
@@ -135,16 +159,29 @@ export default {
         return
       }
         this.form = {}  // 新增数据的时候清空数据
+        initWangEditor('')
         this.fromVisible = true   // 打开弹窗
 
     },
     handleEdit(row) {   // 编辑数据
       this.form = JSON.parse(JSON.stringify(row))  // 给form对象赋值  注意要深拷贝数据
+      initWangEditor(this.form.description || '')
       this.fromVisible = true   // 打开弹窗
+    },
+    viewEditor(content) {
+      this.viewData = content
+      this.editorVisible = true
+    },
+    cancel() {
+      this.fromVisible = false
+      location.href = '/goods'
     },
     save() {   // 保存按钮触发的逻辑  它会触发新增或者更新
       this.$refs.formRef.validate((valid) => {
         if (valid) {
+          this.form.description = editor.txt.html();
+          // this.form.sellerId = this.uesr.id;
+          // this.form.
           this.$request({
             url: this.form.id ? '/product/update' : '/product/add',
             method: this.form.id ? 'PUT' : 'POST',

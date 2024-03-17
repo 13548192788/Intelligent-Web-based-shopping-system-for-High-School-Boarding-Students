@@ -1,6 +1,7 @@
 package com.example.mapper;
 
 import com.example.entity.Product;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 
 import java.util.List;
@@ -43,6 +44,11 @@ public interface ProductMapper {
 
     @Select("select * from product order by count desc limit 15")
     List<Product> selectTop15();
+
+
+    void increaseProductSales(@Param("productId") Integer productId);
+
+
 
 
 }

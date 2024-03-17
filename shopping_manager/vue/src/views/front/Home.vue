@@ -3,11 +3,11 @@
     <div style="height: 10px; background-color: #C566F6FF"></div>
     <div style="display: flex">
       <div class="left"></div>
-      <div style="width: 80%; background-color: #fffafa; margin-bottom: 50px">
+      <div style="width: 100%; background-color: #fffafa; margin-bottom: 50px">
         <div style="color: #355476; margin: 15px 0 15px 18px; font-weight: bold; font-size: 30px">Shopping Home</div>
         <div style="display: flex; margin: 0 25px; height: 350px">
           <div style="flex: 2">
-            <div style="display: flex; color: #666666FF; margin: 14px 0" v-for="item in typeData">
+            <div style="display: flex; color: #666666FF; margin: 14px 0" v-for="item in categoryData">
               <img :src="item.img" alt="" style="height: 30px; width: 20px">
               <div style="margin-left: 10px; font-size: 17px"><a href="#" @click="navTo('/front/category?id=' + item.id)">{{item.name}}</a></div>
             </div>
@@ -120,14 +120,14 @@ export default {
         require('@/assets/imgs/carousel-1.png'),
         require('@/assets/imgs/carousel-2.png'),
       ],
-      carousel_left: [
-        require('@/assets/imgs/carousel-3.png'),
-        require('@/assets/imgs/carousel-4.png'),
-      ],
-      carousel_right: [
-        require('@/assets/imgs/carousel-5.png'),
-        require('@/assets/imgs/carousel-6.png'),
-      ],
+      // carousel_left: [
+      //   require('@/assets/imgs/carousel-3.png'),
+      //   require('@/assets/imgs/carousel-4.png'),
+      // ],
+      // carousel_right: [
+      //   require('@/assets/imgs/carousel-5.png'),
+      //   require('@/assets/imgs/carousel-6.png'),
+      // ],
     }
   },
   mounted() {
@@ -150,7 +150,7 @@ export default {
     loadCategory() {
       this.$request.get('/category/selectAll').then(res => {
         if (res.code === '200') {
-          this.typeData = res.data
+          this.categoryData = res.data
         } else {
           this.$message.error(res.msg)
         }

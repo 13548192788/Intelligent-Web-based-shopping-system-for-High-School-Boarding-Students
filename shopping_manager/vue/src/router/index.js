@@ -45,6 +45,7 @@ const routes = [
       { path: 'detail', name: 'Detail', meta: { name: 'Product Information' }, component: () => import('../views/front/Detail') },
       { path: 'search', name: 'Search', meta: { name: 'Search' }, component: () => import('../views/front/Search') },
       { path: 'category', name: 'Category', meta: { name: 'Category' }, component: () => import('../views/front/Category') },
+      { path: 'seller', name: 'Seller', meta: { name: 'Seller' }, component: () => import('../views/front/Seller') },
     ]
   },
   { path: '/login', name: 'Login', meta: { name: 'Login' }, component: () => import('../views/Login.vue') },

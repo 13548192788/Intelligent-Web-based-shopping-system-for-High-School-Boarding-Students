@@ -19,12 +19,15 @@ public class OrdersController {
     @Resource
     private OrdersService ordersService;
 
+
     /**
      * 新增
      */
     @PostMapping("/add")
     public Result add(@RequestBody Orders orders) {
         ordersService.add(orders);
+        // 更新商品销量
+        //productService.increaseProductSales(orders.getProductId());
         return Result.success();
     }
 

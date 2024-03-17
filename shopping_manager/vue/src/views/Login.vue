@@ -55,8 +55,10 @@ export default {
         if (valid) {
           // 验证通过
           this.$request.post('/login', this.form).then(res => {
+            debugger;
             if (res.code === '200') {
               let user = res.data
+
               localStorage.setItem("xm-user", JSON.stringify(user))  // 存储用户数据
               if (user.role === 'USER') {
                 location.href = '/front/home'
