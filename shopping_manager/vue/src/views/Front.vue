@@ -7,8 +7,8 @@
         <div class="title">GoShopping</div>
       </div>
       <div class="front-header-center">
-        <el-input style="width: 200px" placeholder="Please enter  " v-model="name"></el-input>
-        <el-button type="primary" style="margin-left: 5px" @click="search">Search</el-button>
+        <el-input style="width: 200px; height: 70px;" placeholder="Please enter  " v-model="name"></el-input>
+        <el-button type="primary" style="margin-left: 10px" @click="search">Search</el-button>
       </div>
       <div class="front-header-right">
         <div v-if="!user.username">
@@ -47,18 +47,23 @@
         </div>
       </div>
     </div>
-<!--    <div class="navbar">-->
-<!--      <button class="nav-item" @click="navTo('/front/home')">首页</button>-->
-<!--      <div class="nav-item with-dropdown">-->
-<!--        <button class="dropdown-toggle" @click="toggleDropdown" v-for="item in categoryData">商品分类</button>-->
-<!--        <ul class="dropdown-menu" v-show="showDropdown">-->
-<!--          <div style="margin-left: 10px; font-size: 17px"><a href="#" @click="navTo('/front/category?id=' + item.id)">{{item.name}}</a></div>-->
-<!--        </ul>-->
-<!--      </div>-->
-<!--      <button class="nav-item" @click="navTo('/products')">产品</button>-->
-<!--      <button class="nav-item" @click="navTo('/news')">新闻</button>-->
-<!--      <button class="nav-item" @click="navTo('/brands')">品牌</button>-->
-<!--    </div>-->
+    <div class="navbar" >
+<!--      <el-menu router unique-opened :default-active="active" class="el-menu-demo" mode="horizontal" background-color="#C78F98" text-color="white">-->
+      <el-menu class="el-menu-demo" mode="horizontal" background-color="#C78F98" text-color="white">
+        <el-menu-item index="1" class="menu-item" @click="navTo('/front/home')" style="font-size: 18px">Home
+        </el-menu-item>
+        <el-submenu index='2'>
+          <template slot="title"><span style="font-size: 18px;">Produce</span></template>
+          <el-menu-item @click="navTo('/front/products')">产品</el-menu-item>
+          <el-menu-item @click="navTo('/front/news')">新闻</el-menu-item>
+          <el-menu-item @click="navTo('/front/brands')">品牌</el-menu-item>
+        </el-submenu>
+        <el-menu-item index="3" class="menu-item" @click="navTo('/front/cart')" style="font-size: 18px"> Cart
+        </el-menu-item>
+        <el-menu-item index="4" class="menu-item" @click="navTo('/front/orders')" style="font-size: 18px">  Orders
+        </el-menu-item>
+      </el-menu>
+    </div>
 <!--    主体-->
     <div class="main-body">
       <router-view ref="child" @update:user="updateUser" />
@@ -80,6 +85,7 @@ export default {
       categoryData: [],
       name: '',//使得搜索栏可输入
       user: JSON.parse(localStorage.getItem("xm-user") || '{}'),
+      active:"1"
     }
   },
 
@@ -138,4 +144,7 @@ export default {
 
 <style scoped>
 @import "@/assets/css/front.css";
+.el-menu {
+  width: 100%; /* 或者具体的宽度值 */
+}
 </style>

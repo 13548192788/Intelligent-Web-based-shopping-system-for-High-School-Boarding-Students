@@ -1,22 +1,22 @@
 <template>
   <div class="main-content">
-    <div style="height: 10px; background-color: #C566F6FF"></div>
+    <div style="height: 2px; background-color: #fffafa"></div>
     <div style="display: flex">
-      <div class="left"></div>
-      <div style="width: 100%; background-color: #fffafa; margin-bottom: 50px">
-        <div style="color: #355476; margin: 15px 0 15px 18px; font-weight: bold; font-size: 30px">Shopping Home</div>
-        <div style="display: flex; margin: 0 25px; height: 350px">
-          <div style="flex: 2">
-            <div style="display: flex; color: #666666FF; margin: 14px 0" v-for="item in categoryData">
-              <img :src="item.img" alt="" style="height: 30px; width: 20px">
-              <div style="margin-left: 10px; font-size: 17px"><a href="#" @click="navTo('/front/category?id=' + item.id)">{{item.name}}</a></div>
-            </div>
-          </div>
+<!--      <div class="left"></div>-->
+      <div style="width: 100%; background-color: #fffafa; margin-bottom: 10px">
+<!--        <div style="color: #355476; margin: 15px 0 15px 18px; font-weight: bold; font-size: 30px">Shopping Home</div>-->
+        <div style="display: flex; margin: 0 5px; height: 500px">
+<!--          <div style="flex: 2">-->
+<!--            <div style="display: flex; color: #666666FF; margin: 14px 0" v-for="item in categoryData">-->
+<!--              <img :src="item.img" alt="" style="height: 30px; width: 20px">-->
+<!--              <div style="margin-left: 10px; font-size: 17px"><a href="#" @click="navTo('/front/category?id=' + item.id)">{{item.name}}</a></div>-->
+<!--            </div>-->
+<!--          </div>-->
           <div style="flex: 5; margin-top: 15px">
             <div>
-              <el-carousel height="350px" style="border-radius: 10px">
+              <el-carousel height="500px" style="border-radius: 10px">
                 <el-carousel-item v-for="item in carousel_top">
-                  <img :src="item" alt="" style="width: 100%; height: 350px; border-radius: 10px">
+                  <img :src="item" alt="" style="width: 100%; height: 500px; border-radius: 10px">
                 </el-carousel-item>
               </el-carousel>
             </div>
@@ -37,11 +37,11 @@
 <!--              </div>-->
 <!--            </div>-->
           </div>
-          <div style="flex: 3; background-color: #F3F3F3FF; margin-top: 15px; margin-left: 15px; border-radius: 10px">
-            <div style="text-align: center; margin-top: 10px">
-              <img @click="navTo('/front/person')" :src="user.avatar" alt="" style="width: 80px; height: 80px; border-radius: 50%">
-              <div style="margin-top: 10px">Hi，{{user.name}}</div>
-            </div>
+<!--          <div style="flex: 3; background-color: #F3F3F3FF; margin-top: 15px; margin-left: 15px; border-radius: 10px">-->
+<!--            <div style="text-align: center; margin-top: 10px">-->
+<!--              <img @click="navTo('/front/person')" :src="user.avatar" alt="" style="width: 80px; height: 80px; border-radius: 50%">-->
+<!--              <div style="margin-top: 10px">Hi，{{user.name}}</div>-->
+<!--            </div>-->
 <!--            <div style="margin-top: 20px; padding: 0 15px">-->
 <!--              <img src="@/assets/imgs/right.png" alt="" style="height: 150px; width: 100%; border-radius: 20px">-->
 <!--            </div>-->
@@ -50,35 +50,35 @@
 <!--              <span style="font-weight: bold">Notice</span>-->
 <!--              <span style="color: #666666;">：{{ top }}</span>-->
 <!--            </div>-->
-            <div style="display: flex; margin-top: 50px">
-              <div style="flex: 1; text-align: center">
-                <a href="#" @click="navTo('/front/collect')">
-                  <img src="@/assets/imgs/collection.png" alt="" style="height: 25px; width: 25px">
-                  <div>My Collection</div>
-                </a>
-              </div>
-              <div style="flex: 1; text-align: center">
-                <a href="#" @click="navTo('/front/address')">
-                  <img src="@/assets/imgs/home.png" alt="" style="height: 25px; width: 25px">
-                  <div>My Address</div>
-                </a>
-              </div>
-              <div style="flex: 1; text-align: center">
-                <a href="#" @click="navTo('/front/cart')">
-                  <img src="@/assets/imgs/cart.png" alt="" style="height: 25px; width: 25px">
-                  <div>My cart</div>
-                </a>
-              </div>
-              <div style="flex: 1; text-align: center">
-                <a href="#" @click="navTo('/front/orders')">
-                  <img src="@/assets/imgs/order.png" alt="" style="height: 25px; width: 25px">
-                  <div>My order</div>
-                </a>
-              </div>
-            </div>
-          </div>
+<!--            <div style="display: flex; margin-top: 50px">-->
+<!--              <div style="flex: 1; text-align: center">-->
+<!--                <a href="#" @click="navTo('/front/collect')">-->
+<!--                  <img src="@/assets/imgs/collection.png" alt="" style="height: 25px; width: 25px">-->
+<!--                  <div>My Collection</div>-->
+<!--                </a>-->
+<!--              </div>-->
+<!--              <div style="flex: 1; text-align: center">-->
+<!--                <a href="#" @click="navTo('/front/address')">-->
+<!--                  <img src="@/assets/imgs/home.png" alt="" style="height: 25px; width: 25px">-->
+<!--                  <div>My Address</div>-->
+<!--                </a>-->
+<!--              </div>-->
+<!--              <div style="flex: 1; text-align: center">-->
+<!--                <a href="#" @click="navTo('/front/cart')">-->
+<!--                  <img src="@/assets/imgs/cart.png" alt="" style="height: 25px; width: 25px">-->
+<!--                  <div>My cart</div>-->
+<!--                </a>-->
+<!--              </div>-->
+<!--              <div style="flex: 1; text-align: center">-->
+<!--                <a href="#" @click="navTo('/front/orders')">-->
+<!--                  <img src="@/assets/imgs/order.png" alt="" style="height: 25px; width: 25px">-->
+<!--                  <div>My order</div>-->
+<!--                </a>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
         </div>
-        <div style="margin: 40px 0 0 15px; height: 40px; background-color: #04BF04FF; font-size: 20px; color: white; width: 130px; font-weight: bold; line-height: 40px; text-align: center; border-radius: 20px">Hot</div>
+        <div style="margin: 40px 0 0 15px; height: 40px; background-color: #C299BA; font-size: 20px; color: white; width: 130px; font-weight: bold; line-height: 40px; text-align: center; border-radius: 20px">Hot</div>
         <div style="margin: 10px 5px 0 5px">
           <el-row>
             <el-col :span="5" v-for="item in productData">
@@ -88,18 +88,18 @@
             </el-col>
           </el-row>
         </div>
-        <div style="margin: 40px 0 0 15px; height: 40px; background-color: #04BF04FF; font-size: 20px; color: white; width: 200px; font-weight: bold; line-height: 40px; text-align: center; border-radius: 20px">Recommendation</div>
+        <div style="margin: 40px 0 0 15px; height: 40px; background-color: #C299BA; font-size: 20px; color: white; width: 200px; font-weight: bold; line-height: 40px; text-align: center; border-radius: 20px">Recommendation</div>
         <div style="margin: 10px 5px 0 5px">
           <el-row>
             <el-col :span="5" v-for="item in recommendData">
               <img @click="navTo('/front/detail?id=' + item.id)" :src="item.img" alt="" style="width: 100%; height: 175px; border-radius: 10px; border: #cccccc 1px solid">
               <div style="margin-top: 10px; font-weight: 500; font-size: 16px; width: 180px; color: #000000FF; text-overflow: ellipsis; overflow: hidden; white-space: nowrap;">{{item.name}}</div>
-              <div style="margin-top: 5px; font-size: 20px; color: #FF5000FF">￥ {{item.price}}}</div>
+              <div style="margin-top: 5px; font-size: 20px; color: #FF5000FF">￥ {{item.price}}</div>
             </el-col>
           </el-row>
         </div>
       </div>
-      <div class="right"></div>
+<!--      <div class="right"></div>-->
     </div>
   </div>
 </template>

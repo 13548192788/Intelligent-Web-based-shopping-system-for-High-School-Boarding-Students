@@ -1,8 +1,8 @@
-.front-notice {
-    padding: 5px 20px;
-    color: #666;
-    font-size: 12px
-}
+/*.front-notice {*/
+/*    padding: 5px 20px;*/
+/*    color: #666;*/
+/*    font-size: 12px*/
+/*}*/
 .front-header {
     display: flex;
     height: 60px;
@@ -26,7 +26,7 @@
     color: #355476;
     cursor: pointer;
     margin-left: 10px;
-    font-size: 20px;
+    font-size: 26px;
     font-weight: bold;
 }
 .front-header-center {
@@ -51,6 +51,8 @@
 .main-content {
     width: 100%;
     margin: 0 auto;
+    background-image: url("@/assets/imgs/img.png");
+    height:700px
 }
 /* ElementUI 样式覆盖 */
 .el-menu.el-menu--horizontal {
