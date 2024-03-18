@@ -155,7 +155,7 @@ export default {
     },
     handleAdd() {   // 新增数据
       if ('Pass' !== this.user.status) {
-        this.$message.warning('您的店铺信息还未审核通过，暂时不允许发布商品')
+        this.$message.warning('Your shop information has not yet been passed')
         return
       }
         this.form = {}  // 新增数据的时候清空数据

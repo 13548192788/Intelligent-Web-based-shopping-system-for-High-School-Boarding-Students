@@ -12,9 +12,9 @@
 <!--              <div style="margin-left: 10px; font-size: 17px"><a href="#" @click="navTo('/front/category?id=' + item.id)">{{item.name}}</a></div>-->
 <!--            </div>-->
 <!--          </div>-->
-          <div style="flex: 5; margin-top: 15px">
+          <div style="flex: 5; margin-top: 0px">
             <div>
-              <el-carousel height="500px" style="border-radius: 10px">
+              <el-carousel height="500px" style="border-radius: 0px">
                 <el-carousel-item v-for="item in carousel_top">
                   <img :src="item" alt="" style="width: 100%; height: 500px; border-radius: 10px">
                 </el-carousel-item>
@@ -81,10 +81,12 @@
         <div style="margin: 40px 0 0 15px; height: 40px; background-color: #C299BA; font-size: 20px; color: white; width: 130px; font-weight: bold; line-height: 40px; text-align: center; border-radius: 20px">Hot</div>
         <div style="margin: 10px 5px 0 5px">
           <el-row>
-            <el-col :span="5" v-for="item in productData">
-              <img @click="navTo('/front/detail?id=' + item.id)" :src="item.img" alt="" style="Fwidth: 100%; height: 175px; border-radius: 10px; border: #cccccc 1px solid">
-              <div @click="navTo('/front/detail?id=' + item.id)" style="margin-top: 10px; font-weight: 500; font-size: 16px; width: 180px; color: #000000FF; text-overflow: ellipsis; overflow: hidden; white-space: nowrap;">{{item.name}}</div>
-              <div style="margin-top: 5px; font-size: 20px; color: #FF5000FF">￥ {{item.price}}</div>
+            <el-col :span="5" v-for="item in productData" style="width: 200px; margin-right: 20px;">
+              <div style="width: 180px; height: 250px; display: flex; flex-direction: column; align-items: center; border-radius: 10px; border: #cccccc 1px solid; overflow: hidden;">
+                <img @click="navTo('/front/detail?id=' + item.id)" :src="item.img" alt="" style="Fwidth: 100%; height: 175px; border-radius: 10px; border: #cccccc 1px solid; object-fit: cover;">
+                <div @click="navTo('/front/detail?id=' + item.id)" style="margin-top: 10px; font-weight: 500; font-size: 16px; width: 180px; color: #000000FF; text-overflow: ellipsis; overflow: hidden; white-space: nowrap;">{{item.name}}</div>
+                <div style="margin-top: 5px; font-size: 20px; color: #FF5000FF">￥ {{item.price}}</div>
+              </div>
             </el-col>
           </el-row>
         </div>

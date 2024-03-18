@@ -1,6 +1,6 @@
 <template>
   <div class="main-content">
-    <div style="width: 60%; background-color: white; min-height: 1000px; margin: 20px auto; border-radius: 20px">
+    <div style="width: 70%; background-color: white; min-height: 1000px; margin: 10px auto; border-radius: 20px">
       <div style="padding: 15px 20px">
         <el-row :gutter="20">
           <el-col :span="12">
@@ -8,16 +8,16 @@
           </el-col>
           <el-col :span="12">
             <div style="font-size: 20px; font-weight: 900; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;">{{productData.name}}</div>
-            <div style="color: #666666FF; margin-top: 5px">Count：{{productData.count}}</div>
-            <div style="color: red; margin-top: 15px">Price：<span style="font-size: 20px">{{productData.price}}</span></div>
+<!--            <div style="color: #666666FF; margin-top: 5px; font-size: 15px">Count：{{productData.count}}</div>-->
+            <div style="color: red; margin-top: 15px">Price：<span style="font-size: 20px">{{productData.price}} RMB</span></div>
             <div style="margin-top: 20px">
               <img src="@/assets/imgs/right.png" alt="" style="width: 70%; height: 130px; border-radius: 15px">
             </div>
-            <div style="color: #666666FF; margin-top: 20px">Seller：<a href="#" @click="navTo('/front/seller?id=' + productData.sellerId)">{{productData.sellerName}}</a></div>
-            <div style="color: #666666FF; margin-top: 20px">Category：<a href="#" @click="navTo('/front/category?id=' + productData.categoryId)">{{productData.categoryName}}</a></div>
-            <div style="color: #666666FF; margin-top: 20px">
-              <el-button type="warning" @click="addCart">Add to cart</el-button>
-              <el-button type="warning" @click="collect">Collect</el-button>
+            <div style="color: #666666FF; margin-top: 20px; font-size: 15px">Seller：<a href="#" @click="navTo('/front/seller?id=' + productData.sellerId)">{{productData.sellerName}}</a></div>
+            <div style="color: #666666FF; margin-top: 20px; font-size: 15px">Category：<a href="#" @click="navTo('/front/category?id=' + productData.categoryId)">{{productData.categoryName}}</a></div>
+            <div style="color: #666666FF; margin-top: 20px;">
+              <el-button style="background-color: #C299BA; border-color: #C299BA; color: white;" @click="addCart"><span style="font-size: 16px">Add to cart</span></el-button>
+              <el-button style="background-color: #C299BA; border-color: #C299BA; color: white;" @click="collect"><span style="font-size: 16px">Collect</span></el-button>
             </div>
           </el-col>
         </el-row>

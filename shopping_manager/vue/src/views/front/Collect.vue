@@ -1,6 +1,6 @@
 <template>
   <div class="main-content">
-    <div style="width: 70%; background-color: #FDF5E6; margin: 30px auto; border-radius: 20px">
+    <div style="width: 70%; background-color: #F9F6ED; margin: 10px auto; border-radius: 20px">
       <div style="padding-bottom: 10px">
         <div style="font-size: 18px; color: #000000FF; line-height: 80px; border-bottom: #cccccc 1px solid;">
           <div style="margin-left: 20px; font-size: 24px; line-height: 50px"> My Collection</div>
@@ -15,8 +15,16 @@
                             :src="scope.row.productImg" :preview-src-list="[scope.row.productImg]"></el-image>
                 </template>
               </el-table-column>
-              <el-table-column prop="productName" label="Product Name" width="300px"></el-table-column>
-              <el-table-column prop="sellerName" label="Seller Name"></el-table-column>
+              <el-table-column prop="productName" label="Product Name" width="300px">
+                <template v-slot="scope">
+                  <a :href="'/front/detail?id=' + scope.row.productId">{{scope.row.productName}}</a>
+                </template>
+              </el-table-column>
+              <el-table-column prop="sellerName" label="Seller Name">
+                <template v-slot="scope">
+                  <a :href="'/front/seller?id=' + scope.row.sellerId">{{scope.row.sellerName}}</a>
+                </template>
+              </el-table-column>
               <el-table-column prop="productPrice" label="Price"></el-table-column>
               <el-table-column label="Operation" align="center" width="180">
                 <template v-slot="scope">

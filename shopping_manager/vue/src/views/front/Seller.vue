@@ -1,18 +1,18 @@
 <template>
   <div class="main-content">
-    <div style="width: 60%; margin: 30px auto; border-radius: 20px">
+    <div style="width: 80%; margin: 10px auto; border-radius: 20px">
       <div style="height: 100px; padding: 0 10px; display: flex; align-items: center; border-radius: 25px; background-color: white;">
         <img :src="sellerData.avatar" alt="" style="height: 60px; width: 60px; border-radius: 50%">
         <div style="width: 220px; margin: 0 30px 0 15px; font-size: 20px; font-weight: bold;">
           <div style="height: 30px; line-height: 30px">{{sellerData.name}}</div>
-          <img src="@/assets/imgs/icon.png" alt="" style="height: 25px; margin-top: 5px">
+<!--          <img src="@/assets/imgs/icon.png" alt="" style="height: 25px; margin-top: 5px">-->
         </div>
         <div style="width: 150px; height: 100px; padding: 20px">
-          <div style="font-size: 16px; height: 30px; line-height: 30px; color: #7F7F7FFF">Phone</div>
+          <div style="font-size: 16px; height: 30px; line-height: 30px; color: #000000FF">Phone</div>
           <div style="font-size: 16px; height: 30px; line-height: 30px; ">{{sellerData.phone}}</div>
         </div>
-        <div style="width: 150px; height: 100px; padding: 20px">
-          <div style="font-size: 16px; height: 30px; line-height: 30px; color: #7F7F7FFF">Email</div>
+        <div style="width: 200px; height: 100px; padding: 20px">
+          <div style="font-size: 16px; height: 30px; line-height: 30px; color: #000000FF">Email</div>
           <div style="font-size: 16px; height: 30px; line-height: 30px; ">{{sellerData.email}}</div>
         </div>
         <div style="flex: 1; height: 100px; padding: 20px">
@@ -27,8 +27,8 @@
           <el-row>
             <el-col :span="5" style="margin-bottom: 20px" v-for="item in productData">
               <img :src="item.img" alt="" style="width: 100%; height: 150px; border-radius: 10px; border: #cccccc 1px solid" @click="navTo('/front/detail?id=' + item.id)">
-              <div style="margin-top: 10px; font-weight: 500; font-size: 16px; width: 160px; color: #000000FF; text-overflow: ellipsis; overflow: hidden; white-space: nowrap;">{{item.name}}</div>
-              <div style="margin-top: 5px; font-size: 20px; color: #FF5000FF">￥ {{ item.price }}}</div>
+              <div style="margin-top: 10px; font-weight: 500; font-size: 16px; width: 160px; color: #000000FF; text-overflow: ellipsis; overflow: hidden; white-space: nowrap;" @click="navTo('/front/detail?id=' + item.id)">{{item.name}}</div>
+              <div style="margin-top: 5px; font-size: 20px; color: #FF5000FF">￥ {{ item.price }}</div>
             </el-col>
           </el-row>
         </div>

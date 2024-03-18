@@ -52,7 +52,7 @@
     width: 100%;
     margin: 0 auto;
     background-image: url("@/assets/imgs/img.png");
-    height:700px
+    height:3000px
 }
 /* ElementUI 样式覆盖 */
 .el-menu.el-menu--horizontal {

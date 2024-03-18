@@ -1,6 +1,6 @@
 <template>
   <div class="main-content">
-    <div style="display: flex; width: 70%; background-color: white; margin: 30px auto; border-radius: 20px">
+    <div style="display: flex; width: 70%; background-color: white; margin: 10px auto; border-radius: 20px">
       <div style="flex: 1; padding: 0 20px">
         <div style="font-size: 24px; color: #000000FF; line-height: 80px; border-bottom: #cccccc 1px solid">{{categoryData.name}}</div>
         <div style="margin: 20px 0">

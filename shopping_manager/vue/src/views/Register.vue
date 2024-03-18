@@ -20,7 +20,7 @@
           </el-select>
         </el-form-item>
         <el-form-item>
-          <el-button style="width: 100%; background-color: #333; border-color: #333; color: white" @click="register">Register</el-button>
+          <el-button style="width: 100%; background-color: #F3D67E; border-color: #F3D67E; color: black" @click="register">Register</el-button>
         </el-form-item>
         <div style="display: flex; align-items: center">
 <!--          <div style="flex: 1"></div>-->

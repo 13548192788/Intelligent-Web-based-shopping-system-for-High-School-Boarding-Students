@@ -7,7 +7,7 @@
         <div class="title">GoShopping</div>
       </div>
       <div class="front-header-center">
-        <el-input style="width: 200px; height: 70px;" placeholder="Please enter  " v-model="name"></el-input>
+        <el-input style="width: 600px; height: 50px;" placeholder="Please enter  " v-model="name"></el-input>
         <el-button type="primary" style="margin-left: 10px" @click="search">Search</el-button>
       </div>
       <div class="front-header-right">
@@ -48,19 +48,21 @@
       </div>
     </div>
     <div class="navbar" >
-<!--      <el-menu router unique-opened :default-active="active" class="el-menu-demo" mode="horizontal" background-color="#C78F98" text-color="white">-->
       <el-menu class="el-menu-demo" mode="horizontal" background-color="#C78F98" text-color="white">
         <el-menu-item index="1" class="menu-item" @click="navTo('/front/home')" style="font-size: 18px">Home
         </el-menu-item>
-        <el-submenu index='2'>
-          <template slot="title"><span style="font-size: 18px;">Produce</span></template>
-          <el-menu-item @click="navTo('/front/products')">产品</el-menu-item>
-          <el-menu-item @click="navTo('/front/news')">新闻</el-menu-item>
-          <el-menu-item @click="navTo('/front/brands')">品牌</el-menu-item>
+        <el-submenu index='2' style="background-color: white;">
+          <template slot="title"><span style="font-size: 18px; color: white">Produce</span></template>
+          <div style="display: flex; margin: 14px 0" v-for="item in categoryData">
+            <img :src="item.img" alt="" style="height: 30px; width: 30px">
+            <div style="margin-left: 10px; font-size: 19px; color: white;"><el-menu-item href="#" @click="navTo('/front/category?id=' + item.id)">{{item.name}}</el-menu-item></div>
+          </div>
         </el-submenu>
         <el-menu-item index="3" class="menu-item" @click="navTo('/front/cart')" style="font-size: 18px"> Cart
         </el-menu-item>
         <el-menu-item index="4" class="menu-item" @click="navTo('/front/orders')" style="font-size: 18px">  Orders
+        </el-menu-item>
+        <el-menu-item index="5" class="menu-item" @click="navTo('/front/collect')" style="font-size: 18px">  Collection
         </el-menu-item>
       </el-menu>
     </div>
@@ -146,5 +148,14 @@ export default {
 @import "@/assets/css/front.css";
 .el-menu {
   width: 100%; /* 或者具体的宽度值 */
+}
+.submenu-content {
+  display: flex;
+  color: white;
+  margin: 14px 0;
+  background-color: white; /* 设置下拉菜单内容区域的背景颜色为白色 */
+}
+.el-submenu__title {
+  color: white !important;
 }
 </style>
