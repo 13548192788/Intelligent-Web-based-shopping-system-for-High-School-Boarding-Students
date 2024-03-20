@@ -9,12 +9,7 @@ import java.util.Map;
 import java.util.TreeMap;
 import java.util.stream.IntStream;
 
-/**
- * 核心算法
- *
- * @author B站 UP：武哥聊编程
- * @version 1.0
- */
+
 public class CoreMath {
 
 

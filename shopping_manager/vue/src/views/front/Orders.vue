@@ -6,7 +6,8 @@
           <div style="margin-left: 20px; font-size: 24px;">My Orders</div>
         </div>
         <div style="margin: 20px 0; padding: 0 50px">
-          <div class="table">
+          <div class="table" style="overflow: auto;">
+<!--            表单滑动-->
             <el-table :data="ordersData" strip>
               <el-table-column label="Image" width="120px">
                 <template v-slot="scope">
@@ -91,7 +92,7 @@ export default {
     }
   },
   mounted() {
-    this.loadOrders(1)
+    this.loadOrders(1, this.user.id)
   },
   // methods：本页面所有的点击事件或者其他函数定义区
   methods: {
@@ -99,6 +100,7 @@ export default {
       if (pageNum) this.pageNum = pageNum
       this.$request.get('/orders/selectPage', {
         params: {
+          userId: this.user.id,
           pageNum: this.pageNum,
           pageSize: this.pageSize,
         }

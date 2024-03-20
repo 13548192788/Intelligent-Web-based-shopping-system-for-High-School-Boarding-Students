@@ -15,10 +15,9 @@
           <div style="font-size: 16px; height: 30px; line-height: 30px; color: #000000FF">Email</div>
           <div style="font-size: 16px; height: 30px; line-height: 30px; ">{{sellerData.email}}</div>
         </div>
-        <div style="flex: 1; height: 100px; padding: 20px">
-          <div style="height: 60px; line-height: 30px; font-size: 16px; color: #000000FF; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;">
-            Description：{{sellerData.description}}
-          </div>
+        <div style="width: 200px; height: 100px; padding: 20px">
+          <div style="height: 30px; line-height: 30px; font-size: 16px; color: #000000FF"> Description</div>
+          <div style="height: 30px; line-height: 30px; font-size: 16px; color: #000000FF; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;">{{sellerData.description}}</div>
         </div>
       </div>
       <div style="border-radius: 20px; padding: 0 20px; background-color: white; margin-top: 20px">

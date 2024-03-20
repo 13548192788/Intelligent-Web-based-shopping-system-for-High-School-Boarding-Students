@@ -84,7 +84,7 @@ export default {
     }
   },
   mounted() {
-    this.loadAddress(1)
+    this.loadAddress(1, this.user.id)
   },
   // methods：本页面所有的点击事件或者其他函数定义区
   methods: {
@@ -120,6 +120,7 @@ export default {
       if (pageNum) this.pageNum = pageNum
       this.$request.get('/address/selectPage', {
         params: {
+          userId: this.user.id,
           pageNum: this.pageNum,
           pageSize: this.pageSize,
         }

@@ -11,7 +11,7 @@
             </el-select>
           </div>
           <div style="flex: 1; font-size: 16px; text-align: right; padding-right: 20px">
-            Total ￥ {{totalPrice}} <el-button type="danger" round @click="pay">Buy</el-button>
+            Total ￥ {{totalPrice.toFixed(2)}} <el-button style="background-color: #C299BA; border-color: #C299BA;" round @click="pay"><span style="color: white">Buy</span></el-button>
           </div>
         </div>
         <div style="margin: 20px 0; padding: 0 50px">
@@ -42,7 +42,7 @@
               </el-table-column>
               <el-table-column label="Operation" align="center" width="180">
                 <template v-slot="scope">
-                  <el-button size="mini" type="danger" plain @click="del(scope.row.id)">remove</el-button>
+                  <el-button size="mini" type="danger" plain @click="del(scope.row.id)">Remove</el-button>
                 </template>
               </el-table-column>
             </el-table>
@@ -72,6 +72,7 @@ export default {
   data() {
     return {
       user: JSON.parse(localStorage.getItem('xm-user') || '{}'),
+      userId: JSON.parse(localStorage.getItem('xm-user') || '{}').id,
       productData: [],
       pageNum: 1,   // 当前的页码
       pageSize: 10,  // 每页显示的个数
@@ -83,24 +84,25 @@ export default {
     }
   },
   mounted() {
-    this.loadProduct(1)
-    this.loadAddress()
+    this.loadProduct(1, this.user.id)
+    this.loadAddress(this.user.id)
   },
   // methods：本页面所有的点击事件或者其他函数定义区
   methods: {
-    loadAddress() {
+    loadAddress(userId) {
       this.$request.get('/address/selectAll').then(res => {
         if (res.code === '200') {
-          this.addressData = res.data
+          this.addressData = res.data.filter(item => item.userId === userId);
         } else {
           this.$message.error(res.msg)
         }
       })
     },
-    loadProduct(pageNum) {
+    loadProduct(pageNum, userId) {
       if (pageNum) this.pageNum = pageNum
       this.$request.get('/cart/selectPage', {
         params: {
+          userId: this.user.id,
           pageNum: this.pageNum,
           pageSize: this.pageSize,
         }

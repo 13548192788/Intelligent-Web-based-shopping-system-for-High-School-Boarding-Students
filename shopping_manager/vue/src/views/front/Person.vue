@@ -16,7 +16,7 @@
             <i v-else class="el-icon-plus avatar-uploader-icon"></i>
           </el-upload>
         </div>
-        <el-form-item label="Username" prop="username">
+        <el-form-item label="Account" prop="username">
           <el-input v-model="user.username" placeholder="Username" disabled></el-input>
         </el-form-item>
         <el-form-item label="Name" prop="name">

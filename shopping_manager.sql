@@ -11,7 +11,7 @@
  Target Server Version : 50714
  File Encoding         : 65001
 
- Date: 18/03/2024 22:40:28
+ Date: 20/03/2024 10:10:51
 */
 
 SET NAMES utf8mb4;
@@ -68,13 +68,16 @@ CREATE TABLE `cart`  (
   `seller_id` int(10) NULL DEFAULT NULL,
   `num` int(10) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 11 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of cart
 -- ----------------------------
 INSERT INTO `cart` VALUES (3, 10, 18, 7, 1);
-INSERT INTO `cart` VALUES (4, 10, 14, 9, 1);
+INSERT INTO `cart` VALUES (4, 10, 14, 9, 2);
+INSERT INTO `cart` VALUES (7, 10, 19, 6, 1);
+INSERT INTO `cart` VALUES (9, 11, 17, 6, 1);
+INSERT INTO `cart` VALUES (10, 11, 15, 11, 1);
 
 -- ----------------------------
 -- Table structure for category
@@ -110,7 +113,7 @@ CREATE TABLE `collect`  (
   `product_id` int(10) NULL DEFAULT NULL,
   `seller_id` int(10) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of collect
@@ -118,6 +121,7 @@ CREATE TABLE `collect`  (
 INSERT INTO `collect` VALUES (1, 10, 8, 5);
 INSERT INTO `collect` VALUES (2, 10, 18, 7);
 INSERT INTO `collect` VALUES (3, 10, 14, 9);
+INSERT INTO `collect` VALUES (5, 11, 15, 11);
 
 -- ----------------------------
 -- Table structure for comment
@@ -170,13 +174,15 @@ CREATE TABLE `orders`  (
   `address_id` int(10) NULL DEFAULT NULL,
   `status` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of orders
 -- ----------------------------
 INSERT INTO `orders` VALUES (1, '20240318162658', 8, 5, 2, 10, 64.00, 1, 'Commented');
 INSERT INTO `orders` VALUES (2, '20240318223910', 15, 11, 1, 10, 71.97, 1, 'Waiting');
+INSERT INTO `orders` VALUES (3, '20240319213008', 17, 6, 1, 10, 741.18, 1, 'Waiting');
+INSERT INTO `orders` VALUES (4, '20240319213008', 20, 6, 1, 10, 357.46, 1, 'Waiting');
 
 -- ----------------------------
 -- Table structure for product
@@ -192,7 +198,7 @@ CREATE TABLE `product`  (
   `category_id` int(10) NULL DEFAULT NULL,
   `seller_id` int(10) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 23 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 24 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of product
@@ -212,6 +218,7 @@ INSERT INTO `product` VALUES (19, 'solar eclipse shirt Twice', 'http://localhost
 INSERT INTO `product` VALUES (20, 'Levis® 501 Mens Denim Jeans Original Fit bottoms Straight Leg Pants Jean NEW', 'http://localhost:9090/files/1710771588398-mc2.png', '<p><img src=\"http://localhost:9090/files/1710771635606-image.png\" style=\"max-width:100%;\" contenteditable=\"false\"/></p><p><img src=\"http://localhost:9090/files/1710771650994-image.png\" style=\"max-width:100%;\" contenteditable=\"false\"/></p><p><img src=\"http://localhost:9090/files/1710771686025-image.png\" style=\"max-width:100%;\" contenteditable=\"false\"/></p>', 357.46, 0, 5, 6);
 INSERT INTO `product` VALUES (21, 'Pill Box 28 Slot 7 Days Weekly Tablet Pill Medicine Box Holder Storage Organizer', 'http://localhost:9090/files/1710771984372-hc1.png', '<p><img src=\"http://localhost:9090/files/1710771878178-image.png\" style=\"max-width:100%;\" contenteditable=\"false\"/></p><p><img src=\"http://localhost:9090/files/1710771895667-image.png\" style=\"max-width:100%;\" contenteditable=\"false\"/></p><p><img src=\"http://localhost:9090/files/1710771911459-image.png\" style=\"max-width:100%;\" contenteditable=\"false\"/><br/><img src=\"http://localhost:9090/files/1710771947666-image.png\" style=\"max-width:100%;\" contenteditable=\"false\"/></p>', 27.41, 0, 7, 10);
 INSERT INTO `product` VALUES (22, 'Medicine Amber Plastic Bottles 100ml for Tablets. Liquids | Child-resistant', 'http://localhost:9090/files/1710772026853-hc2.png', '<p><img src=\"http://localhost:9090/files/1710772071915-image.png\" style=\"max-width:100%;\" contenteditable=\"false\"/></p>', 9.08, 0, 7, 10);
+INSERT INTO `product` VALUES (23, 'NEW Birkenstock Unisex Arizona BS 0051791 Regular Fit Black Birko-Flor Sandals', 'http://localhost:9090/files/1710854098540-shoe5.png', '<p><img src=\"http://localhost:9090/files/1710854120917-image.png\" style=\"max-width:100%;\" contenteditable=\"false\"/></p><p><img src=\"http://localhost:9090/files/1710854137375-image.png\" style=\"max-width:100%;\" contenteditable=\"false\"/><br/><img src=\"http://localhost:9090/files/1710854221175-image.png\" style=\"max-width:100%;\" contenteditable=\"false\"/></p>', 525.39, 0, 2, 8);
 
 -- ----------------------------
 -- Table structure for seller
@@ -256,12 +263,14 @@ CREATE TABLE `user`  (
   `phone` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
   `email` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 12 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 14 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of user
 -- ----------------------------
-INSERT INTO `user` VALUES (10, 'u1', '123', 'xx', 'http://localhost:9090/files/1710689666274-a2.png', 'USER', NULL, NULL);
+INSERT INTO `user` VALUES (10, 'u1', '123', 'Rainy', 'http://localhost:9090/files/1710689666274-a2.png', 'USER', NULL, NULL);
 INSERT INTO `user` VALUES (11, 'u2', '123', 'Annie', 'http://localhost:9090/files/1710759984848-a5.png', 'USER', '13548192790', '177086555@qq.com');
+INSERT INTO `user` VALUES (12, 'u3', '123', 'Enya', NULL, 'USER', NULL, NULL);
+INSERT INTO `user` VALUES (13, 'u4', '123', 'Catherine', NULL, 'USER', NULL, NULL);
 
 SET FOREIGN_KEY_CHECKS = 1;
