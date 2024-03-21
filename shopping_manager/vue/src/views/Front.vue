@@ -18,26 +18,17 @@
         <div v-else>
           <el-dropdown>
             <div class="front-header-dropdown">
-              <img @click="navTo('/front/person')" :src="user.avatar" alt="">
+              <img  :src="user.avatar" alt="">
               <div style="margin-left: 10px">
                 <span>{{ user.name }}</span><i class="el-icon-arrow-down" style="margin-left: 5px"></i>
               </div>
             </div>
-            <el-dropdown-menu slot="dropdown">
+            <el-dropdown-menu slot="dropdown" style="width: 160px;">
               <el-dropdown-item>
                 <div style="text-decoration: none" v-if="user.role !== 'USER'" @click="navTo('/home')">Management</div>
               </el-dropdown-item>
               <el-dropdown-item>
-                <div style="text-decoration: none" @click="navTo('/front/cart')">My Cart</div>
-              </el-dropdown-item>
-              <el-dropdown-item>
-                <div style="text-decoration: none" @click="navTo('/front/collect')">My Collection</div>
-              </el-dropdown-item>
-              <el-dropdown-item>
-                <div style="text-decoration: none" @click="navTo('/front/address')">My Address</div>
-              </el-dropdown-item>
-              <el-dropdown-item>
-                <div style="text-decoration: none" @click="navTo('/front/orders')">My Orders</div>
+                <div style="text-decoration: none" @click="navTo('/front/person')">Person Information</div>
               </el-dropdown-item>
               <el-dropdown-item>
                 <div style="text-decoration: none" @click="logout">Exit</div>

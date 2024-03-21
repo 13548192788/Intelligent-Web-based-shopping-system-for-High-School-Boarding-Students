@@ -11,7 +11,7 @@
  Target Server Version : 50714
  File Encoding         : 65001
 
- Date: 20/03/2024 10:10:51
+ Date: 21/03/2024 14:54:48
 */
 
 SET NAMES utf8mb4;
@@ -68,7 +68,7 @@ CREATE TABLE `cart`  (
   `seller_id` int(10) NULL DEFAULT NULL,
   `num` int(10) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 11 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 12 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of cart
@@ -78,6 +78,7 @@ INSERT INTO `cart` VALUES (4, 10, 14, 9, 2);
 INSERT INTO `cart` VALUES (7, 10, 19, 6, 1);
 INSERT INTO `cart` VALUES (9, 11, 17, 6, 1);
 INSERT INTO `cart` VALUES (10, 11, 15, 11, 1);
+INSERT INTO `cart` VALUES (11, 10, 21, 10, 1);
 
 -- ----------------------------
 -- Table structure for category
