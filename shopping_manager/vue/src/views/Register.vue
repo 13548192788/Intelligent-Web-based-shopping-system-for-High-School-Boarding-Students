@@ -90,7 +90,7 @@ export default {
   height: 100vh;
   overflow: hidden;
   background-image: url("@/assets/imgs/bg1.jpg");
-  background-size: 100%;
+  background-size: cover;
   display: flex;
   align-items: center;
   justify-content: center;

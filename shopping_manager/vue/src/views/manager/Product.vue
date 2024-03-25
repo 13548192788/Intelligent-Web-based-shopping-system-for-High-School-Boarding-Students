@@ -33,7 +33,7 @@
         <el-table-column prop="price" label="Price" show-overflow-tooltip></el-table-column>
         <el-table-column prop="categoryName" label="Category" show-overflow-tooltip></el-table-column>
         <el-table-column prop="sellerName" label="Seller Name" show-overflow-tooltip></el-table-column>
-        <el-table-column prop="count" label="Sale" show-overflow-tooltip></el-table-column>
+<!--        <el-table-column prop="count" label="Sale" show-overflow-tooltip></el-table-column>-->
         <el-table-column label="Operation" width="180" align="center">
           <template v-slot="scope">
             <el-button plain type="primary" @click="handleEdit(scope.row)" size="mini">Edit</el-button>

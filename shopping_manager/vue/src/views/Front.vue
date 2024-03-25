@@ -31,6 +31,9 @@
                 <div style="text-decoration: none" @click="navTo('/front/person')">Person Information</div>
               </el-dropdown-item>
               <el-dropdown-item>
+                <div style="text-decoration: none" @click="navTo('/front/address')">My Address</div>
+              </el-dropdown-item>
+              <el-dropdown-item>
                 <div style="text-decoration: none" @click="logout">Exit</div>
               </el-dropdown-item>
             </el-dropdown-menu>
@@ -83,7 +86,7 @@ export default {
   },
 
   mounted() {
-    this.loadNotice()
+    //this.loadNotice()
     this.loadCategory()
   },
   methods: {

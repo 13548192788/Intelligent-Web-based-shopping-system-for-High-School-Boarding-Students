@@ -22,13 +22,13 @@ const routes = [
       { path: 'adminPerson', name: 'AdminPerson', meta: { name: 'Admin Personal Information' }, component: () => import('../views/manager/AdminPerson') },
       { path: 'password', name: 'Password', meta: { name: 'Modify Password' }, component: () => import('../views/manager/Password') },
       { path: 'notice', name: 'Notice', meta: { name: 'Notice Information' }, component: () => import('../views/manager/Notice') },
-      { path: 'category', name: 'Category', meta: { name: 'Category Information' }, component: () => import('../views/manager/Category') },
+      { path: 'category', name: 'Category', meta: { name: 'Category Manage' }, component: () => import('../views/manager/Category') },
       { path: 'seller', name: 'Seller', meta: { name: 'Seller Information' }, component: () => import('../views/manager/Seller') },
       { path: 'sellerPerson', name: 'SellerPerson', meta: { name: 'Seller Personal Information' }, component: () => import('../views/manager/SellerPerson') },
       { path: 'user', name: 'User', meta: { name: 'User Information' }, component: () => import('../views/manager/User') },
       { path: 'product', name: 'Product', meta: { name: 'Product Manage' }, component: () => import('../views/manager/Product') },
-      { path: 'orders', name: 'Orders', meta: { name: '订单管理' }, component: () => import('../views/manager/Orders') },
-      { path: 'comment', name: 'Comment', meta: { name: '评论管理' }, component: () => import('../views/manager/Comment') },
+      { path: 'orders', name: 'Orders', meta: { name: 'Order Manage' }, component: () => import('../views/manager/Orders') },
+      { path: 'comment', name: 'Comment', meta: { name: 'Comment Manage' }, component: () => import('../views/manager/Comment') },
     ]
   },
   {

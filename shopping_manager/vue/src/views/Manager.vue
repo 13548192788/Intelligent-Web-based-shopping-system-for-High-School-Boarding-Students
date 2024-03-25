@@ -48,7 +48,7 @@
             <template slot="title">
               <i class="el-icon-menu"></i><span>Information Manage</span>
             </template>
-            <el-menu-item v-if="user.role === 'ADMIN'" index="/category">Category information</el-menu-item>
+            <el-menu-item v-if="user.role === 'ADMIN'" index="/category">Category Manage</el-menu-item>
             <el-menu-item v-if="user.role !== 'USER'"  index="/product">Product Manage</el-menu-item>
             <el-menu-item index="/orders">Orders Manage</el-menu-item>
             <el-menu-item index="/comment">Comment Manage</el-menu-item>
