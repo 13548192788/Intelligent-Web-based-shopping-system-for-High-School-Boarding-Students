@@ -54,8 +54,8 @@
 <!--    pop-up box-->
     <el-dialog title="Administrator" :visible.sync="fromVisible" width="40%" :close-on-click-modal="false" destroy-on-close>
       <el-form :model="form" label-width="100px" style="padding-right: 50px" :rules="rules" ref="formRef">
-        <el-form-item label="Username" prop="username">
-          <el-input v-model="form.username" placeholder="Username"></el-input>
+        <el-form-item label="Account" prop="username">
+          <el-input v-model="form.username" placeholder="Account"></el-input>
         </el-form-item>
         <el-form-item label="Name" prop="name">
           <el-input v-model="form.name" placeholder="Name"></el-input>

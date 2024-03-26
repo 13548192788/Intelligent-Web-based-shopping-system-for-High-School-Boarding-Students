@@ -42,7 +42,7 @@ export default {
       if (confirmPass === '') {
         callback(new Error('Please confirm the password'))
       } else if (confirmPass !== this.form.password) {
-        callback(new Error('The two passwords you entered did not match!'))
+        callback(new Error('The two passwords did not match!'))
       } else {
         callback()
       }

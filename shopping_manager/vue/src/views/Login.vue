@@ -66,7 +66,7 @@ export default {
               }
               this.$message.success('Login Successfully')
             } else {
-              this.$message.error(res.msg)
+              this.$message.error("Login error")
             }
           })
         }

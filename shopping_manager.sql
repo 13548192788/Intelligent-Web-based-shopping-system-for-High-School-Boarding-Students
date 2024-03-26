@@ -11,7 +11,7 @@
  Target Server Version : 50714
  File Encoding         : 65001
 
- Date: 21/03/2024 14:54:48
+ Date: 26/03/2024 23:15:22
 */
 
 SET NAMES utf8mb4;
@@ -28,7 +28,7 @@ CREATE TABLE `address`  (
   `useraddress` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
   `phone` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of address
@@ -54,7 +54,7 @@ CREATE TABLE `admin`  (
 -- ----------------------------
 -- Records of admin
 -- ----------------------------
-INSERT INTO `admin` VALUES (2, 'a', '123', 'a', 'http://localhost:9090/files/1710745626446-a1.png', 'ADMIN', NULL, NULL);
+INSERT INTO `admin` VALUES (2, 'a', '123', 'admin', 'http://localhost:9090/files/1710745626446-a1.png', 'ADMIN', NULL, NULL);
 INSERT INTO `admin` VALUES (6, 's', '123', 's', NULL, 'ADMIN', NULL, NULL);
 
 -- ----------------------------
@@ -68,17 +68,19 @@ CREATE TABLE `cart`  (
   `seller_id` int(10) NULL DEFAULT NULL,
   `num` int(10) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 12 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 17 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of cart
 -- ----------------------------
 INSERT INTO `cart` VALUES (3, 10, 18, 7, 1);
-INSERT INTO `cart` VALUES (4, 10, 14, 9, 2);
-INSERT INTO `cart` VALUES (7, 10, 19, 6, 1);
 INSERT INTO `cart` VALUES (9, 11, 17, 6, 1);
 INSERT INTO `cart` VALUES (10, 11, 15, 11, 1);
-INSERT INTO `cart` VALUES (11, 10, 21, 10, 1);
+INSERT INTO `cart` VALUES (12, 2, 11, 8, 1);
+INSERT INTO `cart` VALUES (13, 10, 10, 8, 1);
+INSERT INTO `cart` VALUES (14, 10, 23, 8, 1);
+INSERT INTO `cart` VALUES (15, 10, 22, 10, 1);
+INSERT INTO `cart` VALUES (16, 10, 20, 6, 1);
 
 -- ----------------------------
 -- Table structure for category
@@ -90,19 +92,22 @@ CREATE TABLE `category`  (
   `description` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
   `img` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 9 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 12 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of category
 -- ----------------------------
-INSERT INTO `category` VALUES (1, 'Book', NULL, 'http://localhost:9090/files/1710160088823-Book.png');
-INSERT INTO `category` VALUES (2, 'Shoe', NULL, 'http://localhost:9090/files/1710160104472-Shoe.png');
-INSERT INTO `category` VALUES (3, 'Bag', NULL, 'http://localhost:9090/files/1710160120683-Bag.png');
-INSERT INTO `category` VALUES (4, 'Phone', NULL, 'http://localhost:9090/files/1710160224848-Phone.png');
-INSERT INTO `category` VALUES (5, 'Men Clothes', NULL, 'http://localhost:9090/files/1710160278336-Men\'s Clothing.png');
-INSERT INTO `category` VALUES (6, 'Women Clothes', NULL, 'http://localhost:9090/files/1710759810474-Women\'s Clothing.png');
-INSERT INTO `category` VALUES (7, 'Health Care', NULL, 'http://localhost:9090/files/1710759871847-Medicine.png');
-INSERT INTO `category` VALUES (8, 'Sport', NULL, 'http://localhost:9090/files/1710770564766-sport.png');
+INSERT INTO `category` VALUES (1, 'Book', 'You can buy some books in here', 'http://localhost:9090/files/1710160088823-Book.png');
+INSERT INTO `category` VALUES (2, 'Shoe', 'You can buy some shoes in here', 'http://localhost:9090/files/1710160104472-Shoe.png');
+INSERT INTO `category` VALUES (3, 'Bag', 'You can buy some bag in here', 'http://localhost:9090/files/1710160120683-Bag.png');
+INSERT INTO `category` VALUES (4, 'Fruits', 'You can buy some fruits in here', 'http://localhost:9090/files/1711465203037-Fruits.png');
+INSERT INTO `category` VALUES (5, 'Men Clothes', 'You can buy some men clothes in here', 'http://localhost:9090/files/1710160278336-Men\'s Clothing.png');
+INSERT INTO `category` VALUES (6, 'Women Clothes', 'You can buy some women clothes in here', 'http://localhost:9090/files/1710759810474-Women\'s Clothing.png');
+INSERT INTO `category` VALUES (7, 'Health Care', 'You can buy some product of health care in here', 'http://localhost:9090/files/1710759871847-Medicine.png');
+INSERT INTO `category` VALUES (8, 'Sport', 'You can buy some products of sport in here', 'http://localhost:9090/files/1711464449442-Sport.png');
+INSERT INTO `category` VALUES (9, 'Food', 'You can buy some food in here', 'http://localhost:9090/files/1711464471527-Food.png');
+INSERT INTO `category` VALUES (10, 'Cleaning Tool', 'You can buy some cleaning tools in here', 'http://localhost:9090/files/1711464847550-Cleaning Tool.png');
+INSERT INTO `category` VALUES (11, 'Stationery', 'You can buy some stationeries in here', 'http://localhost:9090/files/1711464863549-Stationery.png');
 
 -- ----------------------------
 -- Table structure for collect
@@ -114,15 +119,15 @@ CREATE TABLE `collect`  (
   `product_id` int(10) NULL DEFAULT NULL,
   `seller_id` int(10) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 7 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of collect
 -- ----------------------------
 INSERT INTO `collect` VALUES (1, 10, 8, 5);
-INSERT INTO `collect` VALUES (2, 10, 18, 7);
 INSERT INTO `collect` VALUES (3, 10, 14, 9);
 INSERT INTO `collect` VALUES (5, 11, 15, 11);
+INSERT INTO `collect` VALUES (6, 10, 16, 6);
 
 -- ----------------------------
 -- Table structure for comment
@@ -136,12 +141,13 @@ CREATE TABLE `comment`  (
   `content` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
   `time` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of comment
 -- ----------------------------
 INSERT INTO `comment` VALUES (1, 10, 8, 5, 'nice', '2024-03-18 16:28:24');
+INSERT INTO `comment` VALUES (2, 10, 15, 11, 'good', '2024-03-26 21:22:47');
 
 -- ----------------------------
 -- Table structure for notice
@@ -175,15 +181,14 @@ CREATE TABLE `orders`  (
   `address_id` int(10) NULL DEFAULT NULL,
   `status` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of orders
 -- ----------------------------
-INSERT INTO `orders` VALUES (1, '20240318162658', 8, 5, 2, 10, 64.00, 1, 'Commented');
-INSERT INTO `orders` VALUES (2, '20240318223910', 15, 11, 1, 10, 71.97, 1, 'Waiting');
-INSERT INTO `orders` VALUES (3, '20240319213008', 17, 6, 1, 10, 741.18, 1, 'Waiting');
-INSERT INTO `orders` VALUES (4, '20240319213008', 20, 6, 1, 10, 357.46, 1, 'Waiting');
+INSERT INTO `orders` VALUES (2, '20240318223910', 15, 11, 1, 10, 71.97, 1, 'Commented');
+INSERT INTO `orders` VALUES (3, '20240319213008', 17, 6, 1, 10, 741.18, 1, 'Complete');
+INSERT INTO `orders` VALUES (5, '20240326210607', 19, 6, 1, 10, 134.29, 1, 'Waiting');
 
 -- ----------------------------
 -- Table structure for product
@@ -237,7 +242,7 @@ CREATE TABLE `seller`  (
   `description` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
   `status` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 12 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 15 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of seller
@@ -246,9 +251,12 @@ INSERT INTO `seller` VALUES (5, 's1', '123', 'nice book', 'http://localhost:9090
 INSERT INTO `seller` VALUES (6, 's2', '123', 'nice clothes', 'http://localhost:9090/files/1710745647284-a4.png', 'SELLER', NULL, NULL, NULL, 'Pass');
 INSERT INTO `seller` VALUES (7, 's3', '123', 'nice sport', 'http://localhost:9090/files/1710760013284-a6.png', 'SELLER', NULL, NULL, NULL, 'Pass');
 INSERT INTO `seller` VALUES (8, 's4', '123', 'nice shoes', NULL, 'SELLER', '13548192790', '1770864645@160.com', 'some nice shoes', 'Pass');
-INSERT INTO `seller` VALUES (9, 's5', '123', 'nice phone', NULL, 'SELLER', NULL, NULL, NULL, 'Pass');
+INSERT INTO `seller` VALUES (9, 's5', '123', 'nice fruits', NULL, 'SELLER', NULL, NULL, NULL, 'Pass');
 INSERT INTO `seller` VALUES (10, 's6', '123', 'nice medicine', NULL, 'SELLER', NULL, NULL, NULL, 'Pass');
 INSERT INTO `seller` VALUES (11, 's7', '123', 'nice bag', NULL, 'SELLER', NULL, NULL, NULL, 'Pass');
+INSERT INTO `seller` VALUES (12, 's8', '123', 'nice food', NULL, 'SELLER', NULL, NULL, NULL, 'Pass');
+INSERT INTO `seller` VALUES (13, 's9', '123', 'nice cleaning tool', NULL, 'SELLER', NULL, NULL, NULL, 'Pass');
+INSERT INTO `seller` VALUES (14, 's10', '123', 'nice stationery', NULL, 'SELLER', NULL, NULL, NULL, 'Pass');
 
 -- ----------------------------
 -- Table structure for user
@@ -264,7 +272,7 @@ CREATE TABLE `user`  (
   `phone` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
   `email` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 14 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 16 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of user
@@ -273,5 +281,6 @@ INSERT INTO `user` VALUES (10, 'u1', '123', 'Rainy', 'http://localhost:9090/file
 INSERT INTO `user` VALUES (11, 'u2', '123', 'Annie', 'http://localhost:9090/files/1710759984848-a5.png', 'USER', '13548192790', '177086555@qq.com');
 INSERT INTO `user` VALUES (12, 'u3', '123', 'Enya', NULL, 'USER', NULL, NULL);
 INSERT INTO `user` VALUES (13, 'u4', '123', 'Catherine', NULL, 'USER', NULL, NULL);
+INSERT INTO `user` VALUES (14, 'nn', '123', 'nn', NULL, 'USER', NULL, NULL);
 
 SET FOREIGN_KEY_CHECKS = 1;
