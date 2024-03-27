@@ -18,8 +18,8 @@
         </div>
         <div style="margin: 40px 0 0 15px; height: 40px; background-color: #C299BA; font-size: 20px; color: white; width: 130px; font-weight: bold; line-height: 40px; text-align: center; border-radius: 20px">Hot</div>
         <div style="margin: 10px 5px 0 5px">
-          <el-row>
-            <el-col :span="5" v-for="item in productData" style="width: 200px; margin-right: 20px;">
+          <el-row style="margin-bottom: -20px;">
+            <el-col :span="5" v-for="item in productData" style="width: 200px; margin-right: 20px; margin-bottom: 20px;">
               <div style="width: 200px; height: 250px; display: flex; flex-direction: column; align-items: center; border-radius: 10px; border: #cccccc 1px solid; overflow: hidden;">
                 <img @click="navTo('/front/detail?id=' + item.id)" :src="item.img" alt="" style="width: 100%; height: 175px; border-radius: 10px; border: #cccccc 1px solid">
                 <div @click="navTo('/front/detail?id=' + item.id)" style="margin-top: 10px; font-weight: 500; font-size: 16px; width: 180px; color: #000000FF; text-overflow: ellipsis; overflow: hidden; white-space: nowrap;">{{item.name}}</div>
@@ -41,7 +41,6 @@
           </el-row>
         </div>
       </div>
-<!--      <div class="right"></div>-->
     </div>
   </div>
 </template>
@@ -55,7 +54,6 @@ export default {
       user: JSON.parse(localStorage.getItem('xm-user') || '{}'),
       categoryData: [],
       top: null,
-      notice: [],
       productData: [],
       recommendData: [],
       carousel_top: [
@@ -74,6 +72,7 @@ export default {
     loadRecommend() {
       this.$request.get('/product/recommend').then(res => {
         if (res.code === '200') {
+          console.log(res.data); // 打印返回的推荐商品数据
           this.recommendData = res.data
         } else {
           this.$message.error(res.msg)

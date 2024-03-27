@@ -11,7 +11,7 @@
  Target Server Version : 50714
  File Encoding         : 65001
 
- Date: 26/03/2024 23:15:22
+ Date: 27/03/2024 14:14:03
 */
 
 SET NAMES utf8mb4;
@@ -28,12 +28,13 @@ CREATE TABLE `address`  (
   `useraddress` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
   `phone` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of address
 -- ----------------------------
 INSERT INTO `address` VALUES (1, 10, 'rr', 'vv', '123456745');
+INSERT INTO `address` VALUES (3, 11, 'Annie', 'CDUT', '13548192788');
 
 -- ----------------------------
 -- Table structure for admin
@@ -68,19 +69,23 @@ CREATE TABLE `cart`  (
   `seller_id` int(10) NULL DEFAULT NULL,
   `num` int(10) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 17 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 28 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of cart
 -- ----------------------------
 INSERT INTO `cart` VALUES (3, 10, 18, 7, 1);
-INSERT INTO `cart` VALUES (9, 11, 17, 6, 1);
 INSERT INTO `cart` VALUES (10, 11, 15, 11, 1);
 INSERT INTO `cart` VALUES (12, 2, 11, 8, 1);
-INSERT INTO `cart` VALUES (13, 10, 10, 8, 1);
+INSERT INTO `cart` VALUES (13, 10, 10, 8, 2);
 INSERT INTO `cart` VALUES (14, 10, 23, 8, 1);
 INSERT INTO `cart` VALUES (15, 10, 22, 10, 1);
 INSERT INTO `cart` VALUES (16, 10, 20, 6, 1);
+INSERT INTO `cart` VALUES (18, 10, 21, 10, 2);
+INSERT INTO `cart` VALUES (22, 10, 11, 8, 1);
+INSERT INTO `cart` VALUES (24, 10, 16, 6, 1);
+INSERT INTO `cart` VALUES (25, 10, 17, 6, 1);
+INSERT INTO `cart` VALUES (26, 11, 12, 8, 1);
 
 -- ----------------------------
 -- Table structure for category
@@ -119,7 +124,7 @@ CREATE TABLE `collect`  (
   `product_id` int(10) NULL DEFAULT NULL,
   `seller_id` int(10) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 7 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 18 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of collect
@@ -128,6 +133,17 @@ INSERT INTO `collect` VALUES (1, 10, 8, 5);
 INSERT INTO `collect` VALUES (3, 10, 14, 9);
 INSERT INTO `collect` VALUES (5, 11, 15, 11);
 INSERT INTO `collect` VALUES (6, 10, 16, 6);
+INSERT INTO `collect` VALUES (7, 10, 25, 8);
+INSERT INTO `collect` VALUES (8, 10, 21, 10);
+INSERT INTO `collect` VALUES (9, 11, 21, 10);
+INSERT INTO `collect` VALUES (10, 11, 19, 6);
+INSERT INTO `collect` VALUES (11, 11, 22, 10);
+INSERT INTO `collect` VALUES (12, 10, 15, 11);
+INSERT INTO `collect` VALUES (13, 10, 17, 6);
+INSERT INTO `collect` VALUES (14, 2, 18, 7);
+INSERT INTO `collect` VALUES (15, 2, 11, 8);
+INSERT INTO `collect` VALUES (16, 11, 20, 6);
+INSERT INTO `collect` VALUES (17, 11, 12, 8);
 
 -- ----------------------------
 -- Table structure for comment
@@ -141,13 +157,15 @@ CREATE TABLE `comment`  (
   `content` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
   `time` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of comment
 -- ----------------------------
 INSERT INTO `comment` VALUES (1, 10, 8, 5, 'nice', '2024-03-18 16:28:24');
 INSERT INTO `comment` VALUES (2, 10, 15, 11, 'good', '2024-03-26 21:22:47');
+INSERT INTO `comment` VALUES (3, 11, 26, 8, 'nice good!! \nmy friend loves it ', '2024-03-27 14:08:05');
+INSERT INTO `comment` VALUES (4, 11, 25, 8, 'good colour\n', '2024-03-27 14:09:08');
 
 -- ----------------------------
 -- Table structure for notice
@@ -181,7 +199,7 @@ CREATE TABLE `orders`  (
   `address_id` int(10) NULL DEFAULT NULL,
   `status` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 12 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of orders
@@ -189,6 +207,12 @@ CREATE TABLE `orders`  (
 INSERT INTO `orders` VALUES (2, '20240318223910', 15, 11, 1, 10, 71.97, 1, 'Commented');
 INSERT INTO `orders` VALUES (3, '20240319213008', 17, 6, 1, 10, 741.18, 1, 'Complete');
 INSERT INTO `orders` VALUES (5, '20240326210607', 19, 6, 1, 10, 134.29, 1, 'Waiting');
+INSERT INTO `orders` VALUES (6, '20240327132414', 26, 8, 1, 10, 497.39, 1, 'Complete');
+INSERT INTO `orders` VALUES (7, '20240327132414', 25, 8, 1, 10, 935.88, 1, 'Complete');
+INSERT INTO `orders` VALUES (8, '20240327132557', 25, 8, 1, 11, 935.88, 3, 'Commented');
+INSERT INTO `orders` VALUES (9, '20240327132557', 26, 8, 1, 11, 497.39, 3, 'Commented');
+INSERT INTO `orders` VALUES (10, '20240327140714', 22, 10, 1, 11, 9.08, 3, 'Waiting');
+INSERT INTO `orders` VALUES (11, '20240327140718', 21, 10, 1, 11, 27.41, 3, 'Waiting');
 
 -- ----------------------------
 -- Table structure for product
@@ -204,7 +228,7 @@ CREATE TABLE `product`  (
   `category_id` int(10) NULL DEFAULT NULL,
   `seller_id` int(10) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 24 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 27 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of product
@@ -225,6 +249,9 @@ INSERT INTO `product` VALUES (20, 'Levis® 501 Mens Denim Jeans Original Fit bot
 INSERT INTO `product` VALUES (21, 'Pill Box 28 Slot 7 Days Weekly Tablet Pill Medicine Box Holder Storage Organizer', 'http://localhost:9090/files/1710771984372-hc1.png', '<p><img src=\"http://localhost:9090/files/1710771878178-image.png\" style=\"max-width:100%;\" contenteditable=\"false\"/></p><p><img src=\"http://localhost:9090/files/1710771895667-image.png\" style=\"max-width:100%;\" contenteditable=\"false\"/></p><p><img src=\"http://localhost:9090/files/1710771911459-image.png\" style=\"max-width:100%;\" contenteditable=\"false\"/><br/><img src=\"http://localhost:9090/files/1710771947666-image.png\" style=\"max-width:100%;\" contenteditable=\"false\"/></p>', 27.41, 0, 7, 10);
 INSERT INTO `product` VALUES (22, 'Medicine Amber Plastic Bottles 100ml for Tablets. Liquids | Child-resistant', 'http://localhost:9090/files/1710772026853-hc2.png', '<p><img src=\"http://localhost:9090/files/1710772071915-image.png\" style=\"max-width:100%;\" contenteditable=\"false\"/></p>', 9.08, 0, 7, 10);
 INSERT INTO `product` VALUES (23, 'NEW Birkenstock Unisex Arizona BS 0051791 Regular Fit Black Birko-Flor Sandals', 'http://localhost:9090/files/1710854098540-shoe5.png', '<p><img src=\"http://localhost:9090/files/1710854120917-image.png\" style=\"max-width:100%;\" contenteditable=\"false\"/></p><p><img src=\"http://localhost:9090/files/1710854137375-image.png\" style=\"max-width:100%;\" contenteditable=\"false\"/><br/><img src=\"http://localhost:9090/files/1710854221175-image.png\" style=\"max-width:100%;\" contenteditable=\"false\"/></p>', 525.39, 0, 2, 8);
+INSERT INTO `product` VALUES (24, 'Reebok Walk Ultra 7 DMX MAX Men\'s Shoes', 'http://localhost:9090/files/1711516544945-shoe6.png', '<p><img src=\"http://localhost:9090/files/1711516458322-image.png\" style=\"max-width:100%;\" contenteditable=\"false\"/></p><p><img src=\"http://localhost:9090/files/1711516474565-image.png\" style=\"max-width:100%;\" contenteditable=\"false\"/><br/><img src=\"http://localhost:9090/files/1711516534826-image.png\" style=\"max-width:100%;\" contenteditable=\"false\"/></p>', 468.55, 0, 2, 8);
+INSERT INTO `product` VALUES (25, 'New Balance 9060 Lifestyle Mens Style : U9060gca', 'http://localhost:9090/files/1711516639327-shoe7.png', '<p><img src=\"http://localhost:9090/files/1711516686332-image.png\" style=\"max-width:100%;\" contenteditable=\"false\"/></p><p><img src=\"http://localhost:9090/files/1711516696896-image.png\" style=\"max-width:100%;\" contenteditable=\"false\"/></p><p><img src=\"http://localhost:9090/files/1711516712151-image.png\" style=\"max-width:100%;\" contenteditable=\"false\"/></p>', 935.88, 0, 2, 8);
+INSERT INTO `product` VALUES (26, '2024 New Women\'s Shoes Round Toe High Heels Pumps Ladies Party Heel Red Lining', 'http://localhost:9090/files/1711516903412-shoe8.png', '<p><img src=\"http://localhost:9090/files/1711516828869-image.png\" style=\"max-width:100%;\" contenteditable=\"false\"/></p><p><img src=\"http://localhost:9090/files/1711516841741-image.png\" style=\"max-width:100%;\" contenteditable=\"false\"/><br/><img src=\"http://localhost:9090/files/1711516892388-image.png\" style=\"max-width:100%;\" contenteditable=\"false\"/></p>', 497.39, 0, 2, 8);
 
 -- ----------------------------
 -- Table structure for seller
