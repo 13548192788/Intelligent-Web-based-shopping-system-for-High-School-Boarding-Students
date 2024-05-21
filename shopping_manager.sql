@@ -11,7 +11,7 @@
  Target Server Version : 50714
  File Encoding         : 65001
 
- Date: 27/03/2024 14:14:03
+ Date: 21/05/2024 21:45:22
 */
 
 SET NAMES utf8mb4;
@@ -69,7 +69,7 @@ CREATE TABLE `cart`  (
   `seller_id` int(10) NULL DEFAULT NULL,
   `num` int(10) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 28 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 27 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of cart
@@ -238,8 +238,8 @@ INSERT INTO `product` VALUES (9, 'Advantage Shoes', 'http://localhost:9090/files
 INSERT INTO `product` VALUES (10, 'Boots Chunky Platform Combat Army Goth Punk Ankle Boots Shoes Doc Martens1460 ', 'http://localhost:9090/files/1710762607778-shoe2.png', '<p><img src=\"http://localhost:9090/files/1710762688893-image.png\" style=\"max-width:100%;\" contenteditable=\"false\"/></p><p><br/></p><p><img src=\"http://localhost:9090/files/1710762708737-image.png\" style=\"max-width:100%;\" contenteditable=\"false\"/></p>', 112.03, 0, 2, 8);
 INSERT INTO `product` VALUES (11, 'Crocs Classic Clog Lightning McQueen ', 'http://localhost:9090/files/1710763228830-shoe3.png', '<p>Get ready to race with these limited edition Crocs Classic Clogs featuring Lightning McQueen! Slip on these red clogs with a comfortable fit for any occasion - whether you\'re traveling, working, or just hanging out. The rubber outsole and plastic upper material ensure durability while the Crocs Cars product line adds a fun touch to your wardrobe. This customized clog is perfect for any Cars or Classic theme lover, with a size 6 for men and size 8 for women.<br/></p>', 431.79, 0, 2, 8);
 INSERT INTO `product` VALUES (12, 'Men Clarks Originals Wallabee Green Camouflage Moccasin Shoes', 'http://localhost:9090/files/1710763968697-shoe4.png', '<p>A soft camouflage print complements our natural sustainable FSC®-certified crepe sole, creating the Wallabee Camo. Digitally printed, the dye fully infuses fine Italian green suede from Sciarada tannery for a striking watercolour effect.<br/></p><p><br/></p><p><img src=\"http://localhost:9090/files/1710763937116-image.png\" style=\"max-width:100%;\" contenteditable=\"false\"/></p><p><img src=\"http://localhost:9090/files/1710763956323-image.png\" style=\"max-width:100%;\" contenteditable=\"false\"/></p>', 539.67, 0, 2, 8);
-INSERT INTO `product` VALUES (13, 'Apple iPhone 15 128GB', 'http://localhost:9090/files/1710764186314-phone1.png', '<p><br/><img src=\"http://localhost:9090/files/1710764236859-image.png\" style=\"max-width:100%;\" contenteditable=\"false\"/><br/><img src=\"http://localhost:9090/files/1710764254308-image.png\" style=\"max-width:100%;\" contenteditable=\"false\"/><br/><img src=\"http://localhost:9090/files/1710764340273-image.png\" style=\"max-width:100%;\" contenteditable=\"false\"/></p>', 4677.41, 0, 4, 9);
-INSERT INTO `product` VALUES (14, 'New Samsung Galaxy Note10 - 256GB', 'http://localhost:9090/files/1710765326124-phone2.png', '<p><img src=\"http://localhost:9090/files/1710765367002-image.png\" style=\"max-width:100%;\" contenteditable=\"false\"/></p><p><img src=\"http://localhost:9090/files/1710765389065-image.png\" style=\"max-width:100%;\" contenteditable=\"false\"/></p><p><img src=\"http://localhost:9090/files/1710765412534-image.png\" style=\"max-width:100%;\" contenteditable=\"false\"/></p>', 2291.93, 0, 4, 9);
+INSERT INTO `product` VALUES (13, 'Banana', 'http://localhost:9090/files/1716298982493-banana.png', '<p><br/><br/></p>', 12.00, 0, 4, 9);
+INSERT INTO `product` VALUES (14, 'kiwi', 'http://localhost:9090/files/1716298874410-kiwi.png', '', 20.00, 0, 4, 9);
 INSERT INTO `product` VALUES (15, 'Nike Sling Shoulder Travel Bag Mini', 'http://localhost:9090/files/1710765565881-bag1.png', '<p><img src=\"http://localhost:9090/files/1710765759603-image.png\" style=\"max-width:100%;\" contenteditable=\"false\"/></p><p><img src=\"http://localhost:9090/files/1710765771122-image.png\" style=\"max-width:100%;\" contenteditable=\"false\"/><br/><img src=\"http://localhost:9090/files/1710765822172-image.png\" style=\"max-width:100%;\" contenteditable=\"false\"/></p>', 71.97, 0, 3, 11);
 INSERT INTO `product` VALUES (16, 'Free People Womens Joplin Faux Fur Warm Teddy Coat Outerwear BHFO 3310', 'http://localhost:9090/files/1710768781825-wc1.png', '<p><img src=\"http://localhost:9090/files/1710768821602-image.png\" style=\"max-width:100%;\" contenteditable=\"false\"/></p><p><img src=\"http://localhost:9090/files/1710768839665-image.png\" style=\"max-width:100%;\" contenteditable=\"false\"/></p><p><img src=\"http://localhost:9090/files/1710768870185-image.png\" style=\"max-width:100%;\" contenteditable=\"false\"/></p><p><img src=\"http://localhost:9090/files/1710768934436-image.png\" style=\"max-width:100%;\" contenteditable=\"false\"/></p>', 287.79, 0, 6, 6);
 INSERT INTO `product` VALUES (17, 'Free People Pippa Packable Puffer Jacket Size L', 'http://localhost:9090/files/1710769004731-wc2.png', '<p><img src=\"http://localhost:9090/files/1710769030203-image.png\" style=\"max-width:100%;\" contenteditable=\"false\"/></p><p><img src=\"http://localhost:9090/files/1710769043326-image.png\" style=\"max-width:100%;\" contenteditable=\"false\"/></p><p><img src=\"http://localhost:9090/files/1710769059699-image.png\" style=\"max-width:100%;\" contenteditable=\"false\"/><br/><img src=\"http://localhost:9090/files/1710769125869-image.png\" style=\"max-width:100%;\" contenteditable=\"false\"/></p>', 741.18, 0, 6, 6);
@@ -299,7 +299,7 @@ CREATE TABLE `user`  (
   `phone` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
   `email` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 16 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 15 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of user
