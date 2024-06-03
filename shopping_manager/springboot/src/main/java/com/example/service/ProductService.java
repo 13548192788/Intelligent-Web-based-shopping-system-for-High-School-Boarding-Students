@@ -85,8 +85,8 @@ public class ProductService {
         return productMapper.selectAll(product);
     }
 
-    public List<Product> selectTop15() {
-        return productMapper.selectTop15();
+    public List<Product> selectTop12() {
+        return productMapper.selectTop12();
     }
 
     public List<Product> selectByCategoryId(Integer id) {

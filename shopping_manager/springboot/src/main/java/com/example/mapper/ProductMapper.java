@@ -42,13 +42,9 @@ public interface ProductMapper {
     @Select("select * from product where name like concat('%', #{name}, '%')")
     List<Product> selectByName(String name);
 
-    @Select("select * from product order by count desc limit 15")
-    List<Product> selectTop15();
-
+    @Select("select * from product order by count desc limit 12")
+    List<Product> selectTop12();
 
     void increaseProductSales(@Param("productId") Integer productId);
-
-
-
 
 }

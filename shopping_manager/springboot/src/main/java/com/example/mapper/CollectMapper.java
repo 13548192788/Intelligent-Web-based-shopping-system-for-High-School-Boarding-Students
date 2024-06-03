@@ -11,29 +11,14 @@ import java.util.List;
  */
 public interface CollectMapper {
 
-    /**
-     * 新增
-     */
     int insert(Collect collect);
 
-    /**
-     * 删除
-     */
     int deleteById(Integer id);
 
-    /**
-     * 修改
-     */
     int updateById(Collect collect);
 
-    /**
-     * 根据ID查询
-     */
     Collect selectById(Integer id);
 
-    /**
-     * 查询所有
-     */
     List<Collect> selectAll(Collect collect);
 
     @Select("select * from collect where user_id = #{userId} and product_id = #{productId}")

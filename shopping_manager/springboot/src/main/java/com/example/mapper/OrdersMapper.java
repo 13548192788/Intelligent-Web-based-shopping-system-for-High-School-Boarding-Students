@@ -11,32 +11,17 @@ import java.util.List;
  */
 public interface OrdersMapper {
 
-    /**
-     * 新增
-     */
     int insert(Orders orders);
 
-    /**
-     * 删除
-     */
     int deleteById(Integer id);
 
-    /**
-     * 修改
-     */
     int updateById(Orders orders);
 
-    /**
-     * 根据ID查询
-     */
     Orders selectById(Integer id);
 
-    /**
-     * 查询所有
-     */
     List<Orders> selectAll(Orders orders);
 
-    @Select("select * from orders where status = '已完成' or status = '已评价'")
+    @Select("select * from orders where status = 'Completed' or status = 'Commented'")
     List<Orders> selectAllOKOrders();
 
 }

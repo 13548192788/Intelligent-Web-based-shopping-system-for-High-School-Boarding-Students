@@ -1,11 +1,8 @@
 package com.example.entity;
 
 public class RelateDTO {
-    /** 用户id */
     private Integer useId;
-    /** 商品id */
     private Integer goodsId;
-    /** 指数 */
     private Integer index;
 
     public RelateDTO(Integer useId, Integer goodsId, Integer index) {

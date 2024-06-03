@@ -36,11 +36,11 @@
               <el-table-column prop="username" label="Username" width="90"></el-table-column>
               <el-table-column prop="useraddress" label="Address"></el-table-column>
               <el-table-column prop="phone" label="Phone"></el-table-column>
-              <el-table-column prop="status" label="Status"></el-table-column>
+              <el-table-column prop="status" label="Status" width="100"></el-table-column>
               <el-table-column label="Operation" align="center" width="180">
                 <template v-slot="scope">
-                  <el-button size="mini" type="primary" v-if="scope.row.status === 'Waiting'" plain @click="updateStatus(scope.row, 'Complete')">Confirm </el-button>
-                  <el-button size="mini" type="primary" v-if="scope.row.status === 'Complete'" plain @click="addComment(scope.row)">Comment</el-button>
+                  <el-button size="mini" type="primary" v-if="scope.row.status === 'Waiting'" plain @click="updateStatus(scope.row, 'Completed')">Confirm </el-button>
+                  <el-button size="mini" type="primary" v-if="scope.row.status === 'Completed'" plain @click="addComment(scope.row)">Comment</el-button>
                   <el-button size="mini" type="danger" plain @click="del(scope.row.id)">Delete</el-button>
                 </template>
               </el-table-column>
@@ -134,7 +134,7 @@ export default {
       this.form.status = status
       this.$request.put('/orders/update', this.form).then(res => {
         if (res.code === '200') {
-          this.$message.success('Operation Successfully')
+          this.$message.success('Update Successfully')
         } else {
           this.$message.error(res.msg)
         }

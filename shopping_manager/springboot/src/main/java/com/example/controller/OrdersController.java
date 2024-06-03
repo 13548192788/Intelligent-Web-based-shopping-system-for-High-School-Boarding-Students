@@ -1,8 +1,11 @@
 package com.example.controller;
 
 import com.example.common.Result;
+import com.example.entity.Cart;
 import com.example.entity.Orders;
+import com.example.entity.Product;
 import com.example.service.OrdersService;
+import com.example.service.ProductService;
 import com.github.pagehelper.PageInfo;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,15 +21,29 @@ public class OrdersController {
 
     @Resource
     private OrdersService ordersService;
+    @Resource
+    private ProductService productService;
 
-
-    /**
-     * 新增
-     */
     @PostMapping("/add")
     public Result add(@RequestBody Orders orders) {
         ordersService.add(orders);
         // 更新商品销量
+        List<Cart> cartData = orders.getCartData();
+        try {
+            if (!cartData.isEmpty()) {
+                for (Cart cart : cartData) {
+                    Integer productId = cart.getProductId();
+                    Integer num = cart.getNum();
+                    Product product = productService.selectById(productId);
+                    product.setCount(product.getCount() + num);
+                    productService.updateById(product);
+                }
+            }
+        }catch ( Exception e){
+           System.out.println("Update sale failed");
+           System.out.println(e.getMessage());
+        }
+
         //productService.increaseProductSales(orders.getProductId());
         return Result.success();
     }

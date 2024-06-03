@@ -38,7 +38,7 @@
         <el-table-column prop="status" label="Status" show-overflow-tooltip></el-table-column>
         <el-table-column label="Operation" width="160" align="center">
           <template v-slot="scope">
-            <el-button plain type="primary" size="mini" v-if="scope.row.status === 'Waiting'" @click="updateStatus(scope.row, 'Complete')">Send</el-button>
+            <el-button plain type="primary" size="mini" v-if="scope.row.status === 'Waiting'" @click="updateStatus(scope.row, 'Completed')">Send</el-button>
             <el-button plain type="danger" size="mini" @click=del(scope.row.id)>Delete</el-button>
           </template>
         </el-table-column>

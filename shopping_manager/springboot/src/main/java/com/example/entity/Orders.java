@@ -3,13 +3,9 @@ package com.example.entity;
 import java.io.Serializable;
 import java.util.List;
 
-/**
- * 订单信息表
- */
 public class Orders implements Serializable {
     private static final long serialVersionUID = 1L;
 
-    /** ID */
     private Integer id;
     private Integer userId;
     private Integer sellerId;

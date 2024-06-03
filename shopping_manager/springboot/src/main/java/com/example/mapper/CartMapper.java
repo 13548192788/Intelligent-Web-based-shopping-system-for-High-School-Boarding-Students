@@ -11,29 +11,14 @@ import java.util.List;
  */
 public interface CartMapper {
 
-    /**
-     * 新增
-     */
     int insert(Cart cart);
 
-    /**
-     * 删除
-     */
     int deleteById(Integer id);
 
-    /**
-     * 修改
-     */
     int updateById(Cart cart);
 
-    /**
-     * 根据ID查询
-     */
     Cart selectById(Integer id);
 
-    /**
-     * 查询所有
-     */
     List<Cart> selectAll(Cart cart);
 
     @Select("select * from cart where user_id = #{userId} and product_id = #{productId}")

@@ -12,7 +12,6 @@ import java.util.stream.IntStream;
 
 public class CoreMath {
 
-
     /**
      * 计算相关系数并排序
      */
@@ -62,7 +61,6 @@ public class CoreMath {
      * @param xs x集合
      * @param ys y集合
      * @Return {@link double}
-     * @author B站 UP：武哥聊编程
      */
     public static double getRelate(List<Integer> xs, List<Integer> ys) {
         int n = xs.size();

@@ -27,9 +27,6 @@ public class ProductController {
     @Resource
     private ProductService productService;
 
-    /**
-     * 新增
-     */
     @PostMapping("/add")
     public Result add(@RequestBody Product product) {
 
@@ -37,27 +34,19 @@ public class ProductController {
         return Result.success();
     }
 
-    /**
-     * 删除
-     */
     @DeleteMapping("/delete/{id}")
     public Result deleteById(@PathVariable Integer id) {
         productService.deleteById(id);
         return Result.success();
     }
 
-    /**
-     * 批量删除
-     */
+
     @DeleteMapping("/delete/batch")
     public Result deleteBatch(@RequestBody List<Integer> ids) {
         productService.deleteBatch(ids);
         return Result.success();
     }
 
-    /**
-     * 修改
-     */
     @PutMapping("/update")
     public Result updateById(@RequestBody Product product) {
         productService.updateById(product);
@@ -100,9 +89,9 @@ public class ProductController {
         return Result.success(list);
     }
 
-    @GetMapping("/selectTop15")
-    public Result selectTop15() {
-        List<Product> list = productService.selectTop15();
+    @GetMapping("/selectTop12")
+    public Result selectTop12() {
+        List<Product> list = productService.selectTop12();
         return Result.success(list);
     }
 

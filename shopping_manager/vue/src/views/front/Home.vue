@@ -105,7 +105,7 @@ export default {
       })
     },
     loadProduct() {
-      this.$request.get('/product/selectTop15').then(res => {
+      this.$request.get('/product/selectTop12').then(res => {
         if (res.code === '200') {
           this.productData = res.data
         } else {

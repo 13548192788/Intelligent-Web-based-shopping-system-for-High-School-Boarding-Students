@@ -2,13 +2,8 @@ package com.example.entity;
 
 import java.io.Serializable;
 
-/**
- * 地址信息表
- */
 public class Address implements Serializable {
     private static final long serialVersionUID = 1L;
-
-    /** ID */
     private Integer id;
     private Integer userId;
     private String username;

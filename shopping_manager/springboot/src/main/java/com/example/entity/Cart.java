@@ -8,7 +8,6 @@ import java.io.Serializable;
 public class Cart implements Serializable {
     private static final long serialVersionUID = 1L;
 
-    /** ID */
     private Integer id;
     private Integer userId;
     private Integer sellerId;

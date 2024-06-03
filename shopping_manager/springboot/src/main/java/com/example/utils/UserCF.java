@@ -12,8 +12,7 @@ import java.util.stream.Collectors;
 public class UserCF {
 
     /**
-     * 方法描述: 推荐商品id列表
-     *
+     * 推荐商品id列表
      * @param userId 当前用户
      * @param list   用户商品评分数据
      * @return {@link List<Integer>}
